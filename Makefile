@@ -6,7 +6,7 @@
 #    By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/16 16:15:09 by julmuntz          #+#    #+#              #
-#    Updated: 2022/08/17 14:32:25 by julmuntz         ###   ########.fr        #
+#    Updated: 2022/08/17 15:09:12 by julmuntz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ SRCS		=	so_long.c
 
 OBJS		= 	$(SRCS:.c=.o)
 
-NAME		= 	so_long.a
+NAME		= 	so_long
 
 LIBFT		=	./libft
 
@@ -32,10 +32,9 @@ CFLAGS		= 	-Wall -Wextra -Werror
 
 $(NAME):		$(OBJS)
 					cd $(LIBFT) && $(MAKE)
-					cd $(MLX) && $(MAKE)
 					cp libft/libft.a $(NAME)
+					cd $(MLX) && $(MAKE)
 					cp mlx_linux/libmlx.a $(NAME)
-					ar rcs $(NAME) $(OBJS)
 					$(CC) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 
