@@ -6,18 +6,18 @@
 #    By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/16 16:15:09 by julmuntz          #+#    #+#              #
-#    Updated: 2022/08/17 15:09:12 by julmuntz         ###   ########.fr        #
+#    Updated: 2022/08/17 17:32:55 by julmuntz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		=	so_long.c
+SRCS		=	so_long.c				\
+				ft_mlx_pixel_put.c		\
 
 OBJS		= 	$(SRCS:.c=.o)
 
 NAME		= 	so_long
 
 LIBFT		=	./libft
-
 MLX			=	./mlx_linux
 
 CC			= 	cc
@@ -26,8 +26,6 @@ CFLAGS		= 	-Wall -Wextra -Werror
 
 .c.o :
 	$(CC) -c -I $(LIBFT) $< -o $@
-
-%.o: %.c
 	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 $(NAME):		$(OBJS)
