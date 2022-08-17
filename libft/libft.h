@@ -24,7 +24,7 @@
 # include <stdint.h>
 # include <stdarg.h>
 # include <fcntl.h>
-# include <mlx.h>
+# include "../mlx_linux/mlx.h"
 
 typedef struct s_list
 {
