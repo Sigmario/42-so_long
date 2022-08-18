@@ -12,16 +12,16 @@
 
 #include "libft.h"
 
-static size_t	ft_strnlen(const char *str, size_t maxlen)
+static size_t	ft_strnlen(char *str, size_t maxlen)
 {
-	const char	*ptr = str;
+	char	*ptr = str;
 
 	while (maxlen-- > 0 && *ptr)
 		ptr++;
 	return (ptr - str);
 }
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, char *src, size_t size)
 {
 	size_t	len;
 

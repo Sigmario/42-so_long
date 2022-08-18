@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 15:31:06 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/07/03 15:06:50 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/18 14:10:47 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,28 +65,51 @@ char	*ft_post_nl(char *str)
 char	*get_next_line(int fd)
 {
 	int			size;
-	char		*buf;
-	static char	*str[FOPEN_MAX];
+	static char	buf[BUFFER_SIZE + 1];
+	static char	*str;
 	char		*line;
 
 	if (fd <= -1 || fd >= FOPEN_MAX)
 		return (NULL);
 	size = 1;
-	buf = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	while (size > 0)
 	{
 		size = read(fd, buf, BUFFER_SIZE);
-		if (size == -1 || (size == 0 && ft_strlen(str[fd]) == 0))
-			return (free(buf), free(str[fd]), NULL);
+		if (size == -1 || (size == 0 && ft_strlen(str) == 0))
+			return (free(str), NULL);
 		buf[size] = '\0';
-		if (str[fd] == NULL)
-			str[fd] = ft_strdup(buf);
+		if (str == NULL)
+			str = ft_strdup(buf);
 		else if (buf[0] != '\0')
-			str[fd] = ft_strjoin(str[fd], buf);
-		if (ft_strchr(str[fd], '\n'))
+			str = ft_strjoin(str, buf);
+		if (ft_strchr(str, '\n'))
 			break ;
 	}
-	line = ft_until_nl(str[fd]);
-	str[fd] = ft_post_nl(str[fd]);
-	return (free(buf), line);
+	line = ft_until_nl(str);
+	str = ft_post_nl(str);
+	return (line);
 }
+
+/*
+
+int	main(void)
+{
+	int		fd;
+	int		i;
+	char	*line;
+	i = 1;
+	fd = open("file", O_RDONLY);
+	while (fd)
+	{	
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		printf("N°%d\t%s", i, line);
+		free(line);
+		i++;
+	}
+	close(fd);
+	return (0);
+}
+
+*/

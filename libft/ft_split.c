@@ -48,7 +48,7 @@ static int	ft_word_count(char *s, char c)
 	return (count);
 }
 
-char	**ft_split(char *s, char const c)
+char	**ft_split(char *s, char c)
 {
 	char	**tab;
 	int		index_words;
