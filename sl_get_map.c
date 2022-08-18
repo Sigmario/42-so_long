@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   sl_get_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/18 18:30:30 by julmuntz         ###   ########.fr       */
+/*   Created: 2022/08/18 16:06:59 by julmuntz          #+#    #+#             */
+/*   Updated: 2022/08/18 18:37:49 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "so_long.h"
 
-# include "libft/libft.h"
-
-typedef struct s_data
+void	sl_get_map(t_data *data)
 {
-	int		line_index;
-	int		line_len;
-	int		line_id;
-	int		endian;
-	char	*addr;
-	void	*img;
-	int		bpp;
-}				t_data;
+	char 	**map;
+	int		line;
+	int		i;
 
-void	sl_mlx_pixel_put(t_data *data, int x, int y, int color);
-void	sl_get_map(t_data *data);
-
-#endif
+	data->line_id = line;
+	data->line_index = i;
+	map[line][i];
+}
