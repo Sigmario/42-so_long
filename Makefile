@@ -6,12 +6,13 @@
 #    By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/16 16:15:09 by julmuntz          #+#    #+#              #
-#    Updated: 2022/08/17 20:20:25 by julmuntz         ###   ########.fr        #
+#    Updated: 2022/08/19 17:48:49 by julmuntz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		=	so_long.c				\
 				sl_mlx_pixel_put.c		\
+				sl_get_map.c			\
 
 OBJS		= 	$(SRCS:.c=.o)
 

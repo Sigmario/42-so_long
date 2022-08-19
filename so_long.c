@@ -6,37 +6,47 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/18 18:41:10 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/19 16:46:07 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(void)
+/**/
+// void modif_data(t_data data)
+// {
+// 	data.line_index = 1;
+// 	return;
+// }
+
+/**/
+// void modif_ptr(t_data *data)
+// {
+// 	data->line_index = -1;
+// 	return;
+// }
+
+// char **array;
+
+// array[0] = "abcd"
+// array[1] = "efgh"
+
+// array[0][0] = 'a'
+
+int main(void)
 {
 	t_data data;
-	int fd;
-	int		i;
-	char	*line;
-	i = 1;
-	fd = open("maps/map1.ber", O_RDONLY);
-	while (fd)
-	{
-		line = get_next_line(fd);
-		if (line == NULL)
-			break ;
-		printf("N°%d\t%s", i, line);
-		if (ft_strlen(line) == i)
-			return (ft_printf("Error, not a rectangle.\n"));
-		free(line);
-		i++;
-	}
+
+	// data.line_index = 0;
+	// modif_data(data);
+	// //0
+	// modif_ptr(&data);
+	int i;
+
+	i = 0;
 	sl_get_map(&data);
-	data.line_id = i;
-	printf("%d\n", data.line_id);
-	data.line_index = line;
-	printf("%d\n", data.line_index);
-	close(fd);
+	while (data.map[i])
+		free(data.map[i]);
 	return (0);
 }
 
