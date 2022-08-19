@@ -6,16 +6,16 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 12:29:49 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/18 13:53:14 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/19 20:45:10 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
-# endif
+# define BUFFER_SIZE 1000000
+# define TRUE 1
+# define FALSE 0
 
 # include <stdio.h>
 # include <unistd.h>

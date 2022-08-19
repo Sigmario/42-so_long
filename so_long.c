@@ -6,20 +6,20 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/19 16:46:07 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/19 21:16:12 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-/**/
+/*CHANGES VALUE HERE*/
 // void modif_data(t_data data)
 // {
 // 	data.line_index = 1;
 // 	return;
 // }
 
-/**/
+/*CHANGES VALUE GLOBALLY*/
 // void modif_ptr(t_data *data)
 // {
 // 	data->line_index = -1;
@@ -41,12 +41,7 @@ int main(void)
 	// modif_data(data);
 	// //0
 	// modif_ptr(&data);
-	int i;
-
-	i = 0;
 	sl_get_map(&data);
-	while (data.map[i])
-		free(data.map[i]);
 	return (0);
 }
 
