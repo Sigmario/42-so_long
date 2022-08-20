@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/19 18:48:11 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/20 12:19:35 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_data
 	int		endian;
 	int		line_len;
 	char 	**map;
-	int		line_index;
+	int		x;
 	int		char_index;
 	int		nb_line;
 	int		bpp;
