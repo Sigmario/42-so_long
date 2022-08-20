@@ -6,7 +6,7 @@
 #    By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/16 16:15:09 by julmuntz          #+#    #+#              #
-#    Updated: 2022/08/19 17:48:49 by julmuntz         ###   ########.fr        #
+#    Updated: 2022/08/20 21:42:14 by julmuntz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,10 +31,8 @@ CFLAGS		= 	-Wall -Wextra -Werror
 
 $(NAME):		$(OBJS)
 					cd $(LIBFT) && $(MAKE)
-					cp libft/libft.a $(NAME)
 					cd $(MLX) && $(MAKE)
-					cp mlx_linux/libmlx.a $(NAME)
-					$(CC) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+					$(CC) $(OBJS) libft/libft.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 
 all:			$(NAME)

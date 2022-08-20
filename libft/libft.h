@@ -6,14 +6,14 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 12:29:49 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/19 20:45:10 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/20 21:26:22 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# define BUFFER_SIZE 1000000
+# define BUFFER_SIZE 100
 # define TRUE 1
 # define FALSE 0
 

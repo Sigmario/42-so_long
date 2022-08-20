@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/20 16:01:06 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/20 21:25:27 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,15 @@
 int main(void)
 {
 	t_data data;
-
+	
 	// data.line_index = 0;
 	// modif_data(data);
 	// //0
 	// modif_ptr(&data);
 	
-	int x = 16;
-	int y = 3;
-	
-	sl_get_map(&data);
+	data.map = sl_get_map(&data);
+	ft_printf("%c\n", data.map[16][3]);
+	free(data.map);
 	return (0);
 }
 
