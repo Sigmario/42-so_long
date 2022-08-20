@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/20 12:19:35 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/20 16:01:06 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 /*CHANGES VALUE HERE*/
 // void modif_data(t_data data)
 // {
-// 	data.x = 1;
+// 	data.line_index = 1;
 // 	return;
 // }
 
 /*CHANGES VALUE GLOBALLY*/
 // void modif_ptr(t_data *data)
 // {
-// 	data->x = -1;
+// 	data->line_index = -1;
 // 	return;
 // }
 
@@ -37,10 +37,14 @@ int main(void)
 {
 	t_data data;
 
-	// data.x = 0;
+	// data.line_index = 0;
 	// modif_data(data);
 	// //0
 	// modif_ptr(&data);
+	
+	int x = 16;
+	int y = 3;
+	
 	sl_get_map(&data);
 	return (0);
 }
