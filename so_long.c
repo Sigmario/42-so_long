@@ -6,43 +6,22 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/20 21:25:27 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/22 18:51:19 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-/*CHANGES VALUE HERE*/
-// void modif_data(t_data data)
-// {
-// 	data.line_index = 1;
-// 	return;
-// }
-
-/*CHANGES VALUE GLOBALLY*/
-// void modif_ptr(t_data *data)
-// {
-// 	data->line_index = -1;
-// 	return;
-// }
-
-// char **array;
-
-// array[0] = "abcd"
-// array[1] = "efgh"
-
-// array[0][0] = 'a'
-
 int main(void)
 {
+	int i;
 	t_data data;
-	
-	// data.line_index = 0;
-	// modif_data(data);
-	// //0
-	// modif_ptr(&data);
-	
+
+	i = 0;
 	data.map = sl_get_map(&data);
+	if (sl_errors(data) == TRUE)
+		return (ft_printf("Error\n"));
+	ft_printf("Map de %d lignes.\n", data.nb_line);
 	ft_printf("%c\n", data.map[16][3]);
 	free(data.map);
 	return (0);

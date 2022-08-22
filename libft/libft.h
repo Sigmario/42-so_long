@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 12:29:49 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/20 21:26:22 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/22 17:43:45 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int				ft_isascii(int c);
 int				ft_isdigit(int c);
 int				ft_isprint(int c);
 char			*ft_itoa(int n);
+size_t			ft_linelen(char *line);
 void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstadd_front(t_list **lst, t_list *new);
 void			ft_lstclear(t_list **lst, void (*d)(void *));
@@ -87,6 +88,7 @@ size_t			ft_strlcpy(char *dst, char *src, size_t size);
 size_t			ft_strlen(char *s);
 char			*ft_strmapi(char *s, char (*f)(unsigned int, char));
 int				ft_strncmp(char *s1, char *s2, size_t n);
+size_t			ft_strnlen(char *str, size_t maxlen);
 char			*ft_strnstr(char *big, char *little, size_t len);
 char			*ft_strrchr(char *s, int c);
 char			*ft_strtrim(char *s1, char *set);

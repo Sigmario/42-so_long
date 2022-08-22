@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_strnlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/22 18:09:07 by julmuntz         ###   ########.fr       */
+/*   Created: 2022/08/22 17:23:19 by julmuntz          #+#    #+#             */
+/*   Updated: 2022/08/22 17:26:22 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-# include "libft/libft.h"
-
-typedef struct s_data
+size_t	ft_strnlen(char *str, size_t maxlen)
 {
-	char	*addr;
-	void	*img;
-	int		endian;
-	int		line_len;
-	char 	**map;
-	int		x;
-	int		y;
-	int		nb_char;
-	int		nb_line;
-	int		bpp;
-}				t_data;
+	char	*ptr;
 
-void	sl_mlx_pixel_put(t_data *data, int x, int y, int color);
-char	**sl_get_map(t_data *data);
-int		sl_errors(t_data data);
-
-#endif
+	ptr = str;
+	while (maxlen-- > 0 && *ptr)
+		ptr++;
+	return (ptr - str);
+}
