@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:41:21 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/22 17:48:05 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/23 12:56:23 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_linelen(char *line)
 	size_t	i;
 
 	i = 0;
-	while(line[i] != '\n' && line[i] != '\0')
+	while (line[i] != '\n' && line[i] != '\0')
 		i++;
 	return (i);
 }

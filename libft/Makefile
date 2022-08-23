@@ -86,7 +86,9 @@ SRCS		=	ft_atoi.c							\
 				./ft_printf/convert_string.c		\
 				./ft_printf/convert_unsigned.c		\
 
-OBJS		= 	$(SRCS:.c=.o)
+OBJDIR		= 	obj/
+
+OBJS		= 	$(addprefix $(OBJDIR), $(SRCS:.c=.o))
 
 NAME		= 	libft.a
 
@@ -94,15 +96,22 @@ CC			= 	cc
 RM			= 	rm -f
 CFLAGS		= 	-Wall -Wextra -Werror
 
+$(OBJDIR)%.o:	%.c
+					@mkdir -p $(OBJDIR)
+					@mkdir -p $(OBJDIR)/ft_printf/
+					$(CC) $(CFLAGS) -c $< -o $@
+
 $(NAME):		$(OBJS)
 					ar rc $(NAME) $(OBJS)
 
 all:			$(NAME)
 
 clean:
-					$(RM) $(OBJS) $(B_OBJS)
+					$(RM) -r $(OBJDIR)
 
 fclean:			clean
 					$(RM) $(NAME)
+
+re:				fclean all
 
 .PHONY:			all clean fclean re

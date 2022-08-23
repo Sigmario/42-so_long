@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 12:29:49 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/22 17:43:45 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/23 12:58:13 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ t_list			*ft_lstnew(void *content);
 int				ft_lstsize(t_list *lst);
 void			*ft_memchr(void *s, int c, size_t n);
 int				ft_memcmp(void *s1, void *s2, size_t n);
-void 			*ft_memcpy(void *dst, void *src, size_t n);
-void 			*ft_memmove(void *dst, void *src, size_t n);
+void			*ft_memcpy(void *dst, void *src, size_t n);
+void			*ft_memmove(void *dst, void *src, size_t n);
 void			*ft_memset(void *s, int c, size_t n);
 int				ft_nbrcmp(int *n1, int *n2);
 int				*ft_nbrcpy(int *n1, int *n2);
@@ -77,13 +77,13 @@ void			ft_putstr_fd(char *s, int fd);
 void			ft_putstr(char *str);
 int				ft_scanf(char *fmt, ...);
 char			**ft_split(char *s, char c);
-char 			*ft_strchr(char *s, int c);
+char			*ft_strchr(char *s, int c);
 int				ft_strcmp(char *s1, char *s2);
 char			*ft_strcpy(char *s1, char *s2);
-char 			*ft_strdup(char *s);
-void 			ft_striteri(char *s, void (*f)(unsigned int, char *));
-char 			*ft_strjoin(char *s1, char *s2);
-size_t 			ft_strlcat(char *dst, char *src, size_t size);
+char			*ft_strdup(char *s);
+void			ft_striteri(char *s, void (*f)(unsigned int, char *));
+char			*ft_strjoin(char *s1, char *s2);
+size_t			ft_strlcat(char *dst, char *src, size_t size);
 size_t			ft_strlcpy(char *dst, char *src, size_t size);
 size_t			ft_strlen(char *s);
 char			*ft_strmapi(char *s, char (*f)(unsigned int, char));

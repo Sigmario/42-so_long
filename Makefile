@@ -6,7 +6,7 @@
 #    By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/16 16:15:09 by julmuntz          #+#    #+#              #
-#    Updated: 2022/08/22 17:56:12 by julmuntz         ###   ########.fr        #
+#    Updated: 2022/08/23 12:40:39 by julmuntz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ MLX			=	./mlx_linux
 
 CC			= 	cc
 RM			= 	rm -f
-CFLAGS		= 	-Wall -Wextra -Werror
+CFLAGS		= 	-Wall -Wextra -Werror -g
 
 .c.o :
 	$(CC) -c -I $(LIBFT) $< -o $@

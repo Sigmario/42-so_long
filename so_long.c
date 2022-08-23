@@ -6,23 +6,22 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/22 18:51:19 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/23 13:17:11 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main(void)
+int	main(void)
 {
-	int i;
-	t_data data;
+	int		i;
+	t_data	data;
 
 	i = 0;
 	data.map = sl_get_map(&data);
 	if (sl_errors(data) == TRUE)
-		return (ft_printf("Error\n"));
-	ft_printf("Map de %d lignes.\n", data.nb_line);
-	ft_printf("%c\n", data.map[16][3]);
+		return (ft_printf("\n\nError: Invalid Map\n"));
+	ft_printf("\n\nMap de %d lignes.\n", data.nb_line);
 	free(data.map);
 	return (0);
 }
