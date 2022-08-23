@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 16:06:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/23 13:16:28 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/23 19:28:58 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	sl_count_line(t_data *data, int fd)
 		if (line == NULL)
 			break ;
 		data->nb_line++;
+		data->nb_char = ft_linelen(line);
 		free(line);
 	}
 	close(fd);
@@ -44,7 +45,6 @@ char	**sl_get_map(t_data *data)
 		data->map[data->x] = get_next_line(fd);
 		if (data->map[data->x] == NULL)
 			break ;
-		ft_printf("%s", data->map[data->x]);
 		data->x++;
 	}
 	close(fd);

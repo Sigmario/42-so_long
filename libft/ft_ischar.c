@@ -1,36 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_ischar.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/23 19:15:48 by julmuntz         ###   ########.fr       */
+/*   Created: 2022/08/23 15:06:41 by julmuntz          #+#    #+#             */
+/*   Updated: 2022/08/23 15:07:35 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-
-# include "libft/libft.h"
-
-typedef struct s_data
+int	ft_ischar(int c, int i)
 {
-	char	*addr;
-	void	*img;
-	int		endian;
-	int		line_len;
-	char 	**map;
-	int		x;
-	int		y;
-	int		nb_line;
-	int		nb_char;
-	int		bpp;
-}				t_data;
-
-void	sl_mlx_pixel_put(t_data *data, int x, int y, int color);
-char	**sl_get_map(t_data *data);
-int		sl_errors(t_data data);
-
-#endif
+	if (c == i)
+		return (1);
+	return (0);
+}

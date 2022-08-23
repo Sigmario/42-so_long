@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/23 13:17:11 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/23 19:24:12 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 int	main(void)
 {
-	int		i;
-	t_data	data;
+	static int	i;
+	t_data		data;
 
-	i = 0;
 	data.map = sl_get_map(&data);
 	if (sl_errors(data) == TRUE)
-		return (ft_printf("\n\nError: Invalid Map\n"));
-	ft_printf("\n\nMap de %d lignes.\n", data.nb_line);
+		return (ft_printf("\nError: Invalid Map\n"));
+	while (data.map[i])
+		ft_printf("%s", data.map[i++]);
+	ft_printf("\n\nMap of %d x %d\n", data.nb_line, data.nb_char);
 	free(data.map);
 	return (0);
 }
