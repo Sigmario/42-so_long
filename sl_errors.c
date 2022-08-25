@@ -6,11 +6,33 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:51:18 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/25 17:53:55 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/25 21:34:45 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	sl_invalid_char_errors(t_data data)
+{
+	int	line;
+	int	i;
+
+	line = 0;
+	while (data.map[line])
+	{
+		i = 0;
+		while (data.map[line][i])
+		{
+			if (data.map[line][i] != '0' && data.map[line][i] != '1'
+				&& data.map[line][i] != 'E' && data.map[line][i] != 'C'
+				&& data.map[line][i] != 'P' && data.map[line][i] != '\n')
+				return (ft_printf("Error\nInvalid char(s).\n"), TRUE);
+			i++;
+		}
+		line++;
+	}
+	return (FALSE);
+}
 
 int	sl_char_errors_2(int count_exit, int count_coll, int count_play)
 {
@@ -59,11 +81,10 @@ int	sl_char_errors_1(t_data data)
 
 int	sl_errors(t_data data)
 {
-	int	line;
-	int	i;
+	static int	line;
+	int			i;
 
-	line = 0;
-	while (data.map[line])
+	while (data.map[++line])
 	{
 		if (ft_linelen(data.map[line]) != ft_linelen(data.map[0]))
 			return (ft_printf("Error\nNot rectangular.\n"));
@@ -79,9 +100,8 @@ int	sl_errors(t_data data)
 				return (ft_printf("Error\nAperture(s) found in walls.\n"));
 			i++;
 		}
-		line++;
+		if (sl_char_errors_1(data) == TRUE)
+			return (TRUE);
 	}
-	if (sl_char_errors_1(data) == TRUE)
-		return (TRUE);
 	return (FALSE);
 }

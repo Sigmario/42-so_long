@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/25 16:51:04 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/25 21:11:47 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ int	main(void)
 	data.map = sl_get_map(&data);
 	if (sl_errors(data) == FALSE)
 	{
+		if (data.nb_line == 0 && data.nb_char == 0)
+			return (ft_printf("Error\nEmpty file.\n"));
+		if (sl_invalid_char_errors(data) == TRUE)
+			return (TRUE);
 		while (data.map[i])
 			ft_printf("%s", data.map[i++]);
 		ft_printf("\n\nMap Size:\t%d x %d\n", data.nb_line, data.nb_char);
