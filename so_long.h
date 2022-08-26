@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/25 21:01:30 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/26 20:08:19 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,20 @@ typedef struct s_data
 	int		w;
 	int		h;
 
+	void		*mlx;
+	void		*mlx_win;
+	
 	void	*void_image;
 	void	*wall_image;
-	void	*play_image;
-	void	*coll_image;
 	void	*exit_image;
+	void	*coll_image;
+	void	*play_image;
 }			t_data;
 
 void		sl_mlx_pixel_put(t_data *data, int x, int y, int color);
 char		**sl_get_map(t_data *data);
 int			sl_errors(t_data data);
 int			sl_invalid_char_errors(t_data data);
-void		sl_images(t_data data);
+void		sl_put_images(t_data *data);
 
 #endif

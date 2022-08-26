@@ -14,6 +14,7 @@ SRCS		=	so_long.c				\
 				sl_mlx_pixel_put.c		\
 				sl_get_map.c			\
 				sl_errors.c				\
+				sl_put_images.c			\
 
 OBJS		= 	$(SRCS:.c=.o)
 
