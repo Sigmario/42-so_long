@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/27 11:00:56 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/27 19:33:22 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define SO_LONG_H
 
 # include "libft/libft.h"
+# include <X11/X.h>
+# include <X11/keysym.h>
 
 typedef struct s_data
 {
@@ -30,14 +32,14 @@ typedef struct s_data
 	int		w;
 	int		h;
 
-	void		*mlx;
-	void		*mlx_win;
-	
-	void	*void_image;
-	void	*wall_image;
-	void	*exit_image;
-	void	*coll_image;
-	void	*play_image;
+	void	*mlx;
+	void	*mlx_win;
+
+	void	*img_0;
+	void	*img_1;
+	void	*img_e;
+	void	*img_c;
+	void	*img_p;
 }			t_data;
 
 void		sl_mlx_pixel_put(t_data *data, int x, int y, int color);

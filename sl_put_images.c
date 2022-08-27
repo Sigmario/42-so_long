@@ -6,19 +6,30 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 19:54:40 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/27 15:41:20 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/27 19:37:37 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+static void	*f(void *mlx, char *file, int *width, int *height)
+{
+	return (mlx_xpm_file_to_image(mlx, file, width, height));
+}
+
+int	efvgj(t_data *data, void *ptr, int i, int line)
+{
+	return (mlx_put_image_to_window(data->mlx,
+			data->mlx_win, ptr, (i * 48), (line * 48)));
+}
+
 void	sl_find_images(t_data *data)
 {
-	data->void_image = mlx_xpm_file_to_image(data->mlx, "./images/void.xpm", &(data->w), &(data->h));
-	data->wall_image = mlx_xpm_file_to_image(data->mlx, "./images/wall.xpm", &(data->w), &(data->h));
-	data->exit_image = mlx_xpm_file_to_image(data->mlx, "./images/exit.xpm", &(data->w), &(data->h));
-	data->coll_image = mlx_xpm_file_to_image(data->mlx, "./images/coin.xpm", &(data->w), &(data->h));
-	data->play_image = mlx_xpm_file_to_image(data->mlx, "./images/r_w1.xpm", &(data->w), &(data->h));
+	data->img_0 = f(data->mlx, "./images/void.xpm", &(data->w), &(data->h));
+	data->img_1 = f(data->mlx, "./images/wall.xpm", &(data->w), &(data->h));
+	data->img_e = f(data->mlx, "./images/exit.xpm", &(data->w), &(data->h));
+	data->img_c = f(data->mlx, "./images/coin.xpm", &(data->w), &(data->h));
+	data->img_p = f(data->mlx, "./images/r_w1.xpm", &(data->w), &(data->h));
 }
 
 void	sl_put_images(t_data *data)
@@ -34,15 +45,15 @@ void	sl_put_images(t_data *data)
 		while (data->map[line][++i])
 		{
 			if (data->map[line][i] == '0')
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->void_image, (i * 48), (line * 48));
+				efvgj(data, data->img_0, i, line);
 			if (data->map[line][i] == '1')
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->wall_image, (i * 48), (line * 48));
+				efvgj(data, data->img_1, i, line);
 			if (data->map[line][i] == 'E')
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->exit_image, (i * 48), (line * 48));
+				efvgj(data, data->img_e, i, line);
 			if (data->map[line][i] == 'C')
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->coll_image, (i * 48), (line * 48));
+				efvgj(data, data->img_c, i, line);
 			if (data->map[line][i] == 'P')
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->play_image, (i * 48), (line * 48));
+				efvgj(data, data->img_p, i, line);
 		}
 	}
 }
