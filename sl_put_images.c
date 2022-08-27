@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 19:54:40 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/27 19:54:45 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/27 19:56:14 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	*f(void *mlx, char *file, int *width, int *height)
 	return (mlx_xpm_file_to_image(mlx, file, width, height));
 }
 
-int	ptr_mlx_put_image_to_window(t_data *data, void *ptr, int i, int line)
+static int	p_mlx_put_image_to_window(t_data *data, void *ptr, int i, int line)
 {
 	return (mlx_put_image_to_window(data->mlx,
 			data->mlx_win, ptr, (i * 48), (line * 48)));
@@ -45,15 +45,15 @@ void	sl_put_images(t_data *data)
 		while (data->map[line][++i])
 		{
 			if (data->map[line][i] == '0')
-				ptr_mlx_put_image_to_window(data, data->img_0, i, line);
+				p_mlx_put_image_to_window(data, data->img_0, i, line);
 			if (data->map[line][i] == '1')
-				ptr_mlx_put_image_to_window(data, data->img_1, i, line);
+				p_mlx_put_image_to_window(data, data->img_1, i, line);
 			if (data->map[line][i] == 'E')
-				ptr_mlx_put_image_to_window(data, data->img_e, i, line);
+				p_mlx_put_image_to_window(data, data->img_e, i, line);
 			if (data->map[line][i] == 'C')
-				ptr_mlx_put_image_to_window(data, data->img_c, i, line);
+				p_mlx_put_image_to_window(data, data->img_c, i, line);
 			if (data->map[line][i] == 'P')
-				ptr_mlx_put_image_to_window(data, data->img_p, i, line);
+				p_mlx_put_image_to_window(data, data->img_p, i, line);
 		}
 	}
 }
