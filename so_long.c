@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/27 11:53:11 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/27 14:37:55 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(void)
 		while (data.map[i])
 			ft_printf("%s", data.map[i++]);
 		ft_printf("\n\nMap Size:\tHeight:\t%d\n\t\tWidth:\t%d\n", data.nb_line, data.nb_char);
-		data.mlx_win = mlx_new_window(data.mlx, 500, 300, "test");
+		data.mlx_win = mlx_new_window(data.mlx, data.nb_char * 48, data.nb_line * 48, "StarWario");
 		sl_put_images(&data);
 		mlx_loop(data.mlx);
 	}
