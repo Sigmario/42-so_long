@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/28 14:32:06 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/28 15:38:40 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ int	main(void)
 				* 48, "StarWario");
 
 		mlx_loop_hook(data.mlx, &sl_nothing, &data);
-		mlx_hook(data.window, KeyPress, KeyPressMask, &sl_key_press, &data);
+		mlx_hook(data.window, KeyPress, KeyPressMask, &sl_esc_press, &data);
+		mlx_hook(data.window, ClientMessage, 0, &sl_exit_press, &data);
+
 
 		sl_put_images(&data);
 		mlx_loop(data.mlx);

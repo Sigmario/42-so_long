@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/28 14:31:40 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/28 15:37:28 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ char		**sl_get_map(t_data *data);
 int			sl_errors(t_data data);
 int			sl_invalid_char_errors(t_data data);
 void		sl_put_images(t_data *data);
-int			sl_nothing();
-int			sl_key_press(int keysym, t_data *data);
+int			sl_nothing(void);
+int			sl_esc_press(int keysym, t_data *data);
+int			sl_exit_press(t_data *data);
 
 #endif
