@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 12:29:49 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/23 15:08:30 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/28 15:43:05 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include <stdint.h>
 # include <stdarg.h>
 # include <fcntl.h>
-# include "../mlx_linux/mlx.h"
+# include "../mlx/mlx.h"
 
 typedef struct s_list
 {

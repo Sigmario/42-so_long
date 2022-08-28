@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/28 15:37:28 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/28 15:41:53 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ typedef struct s_data
 	void	*img_p;
 }			t_data;
 
-void		sl_mlx_pixel_put(t_data *data, int x, int y, int color);
 char		**sl_get_map(t_data *data);
 int			sl_errors(t_data data);
 int			sl_invalid_char_errors(t_data data);
