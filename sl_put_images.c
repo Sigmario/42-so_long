@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 19:54:40 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/28 13:21:23 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/28 21:32:57 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,17 @@ static int	p_mlx_put_image_to_window(t_data *data, void *ptr, int i, int line)
 			data->window, ptr, (i * 48), (line * 48)));
 }
 
-void	sl_find_images(t_data *data)
+int	sl_find_images(t_data *data)
 {
 	data->img_0 = f(data->mlx, "./images/void.xpm", &(data->w), &(data->h));
 	data->img_1 = f(data->mlx, "./images/wall.xpm", &(data->w), &(data->h));
 	data->img_e = f(data->mlx, "./images/exit.xpm", &(data->w), &(data->h));
 	data->img_c = f(data->mlx, "./images/coin.xpm", &(data->w), &(data->h));
 	data->img_p = f(data->mlx, "./images/r_w1.xpm", &(data->w), &(data->h));
+	return (0);
 }
 
-void	sl_put_images(t_data *data)
+int	sl_put_images(t_data *data)
 {
 	int	line;
 	int	i;
@@ -56,4 +57,5 @@ void	sl_put_images(t_data *data)
 				p_mlx_put_image_to_window(data, data->img_p, i, line);
 		}
 	}
+	return (0);
 }

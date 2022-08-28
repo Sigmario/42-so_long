@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/28 15:41:53 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/28 21:31:55 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ typedef struct s_data
 	void	*img_p;
 }			t_data;
 
-char		**sl_get_map(t_data *data);
-int			sl_errors(t_data data);
-int			sl_invalid_char_errors(t_data data);
-void		sl_put_images(t_data *data);
-int			sl_nothing(void);
-int			sl_esc_press(int keysym, t_data *data);
-int			sl_exit_press(t_data *data);
+char	**sl_get_map(t_data *data);
+int		sl_errors(t_data data);
+int		sl_invalid_char_errors(t_data data);
+int		sl_find_images(t_data *data);
+int		sl_put_images(t_data *data);
+int		sl_press(int key, t_data *data);
+int		sl_exit_press(t_data *data);
 
 #endif
