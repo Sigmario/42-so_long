@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/28 21:31:55 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/29 16:27:16 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ typedef struct s_data
 	void	*img_e;
 	void	*img_c;
 	void	*img_p;
+
+	int		p_line;
+	int		p_char;
 }			t_data;
 
 char	**sl_get_map(t_data *data);
@@ -49,5 +52,6 @@ int		sl_find_images(t_data *data);
 int		sl_put_images(t_data *data);
 int		sl_press(int key, t_data *data);
 int		sl_exit_press(t_data *data);
+int		sl_player(t_data *data);
 
 #endif

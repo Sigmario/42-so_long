@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_inputs.c                                        :+:      :+:    :+:   */
+/*   sl_player.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/28 12:54:49 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/29 16:57:58 by julmuntz         ###   ########.fr       */
+/*   Created: 2022/08/29 15:56:21 by julmuntz          #+#    #+#             */
+/*   Updated: 2022/08/29 16:49:54 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	sl_exit_press(t_data *data)
+int	sl_player(t_data *data)
 {
-	mlx_destroy_window(data->mlx, data->window);
-	return (0);
-}
+	int	line;
+	int	i;
 
-int	sl_press(int key, t_data *data)
-{
-	if (key == XK_Escape)
-		mlx_destroy_window(data->mlx, data->window);
-	else if (key == XK_w)
-		ft_printf("W: %x\n", key);
-	else if (key == XK_a)
-		ft_printf("A: %x\n", key);
-	else if (key == XK_s)
-		ft_printf("S: %x\n", key);
-	else if (key == XK_d)
-		ft_printf("D: %x\n", key);
+	line = 0;
+	while (data->map[line])
+	{
+		i = 0;
+		while (data->map[line][i])
+		{
+			if (data->map[line][i] == 'P')
+			{
+				data->p_line = line;
+				data->p_char = i;
+				return (0);
+			}
+			i++;
+		}
+		line++;
+	}
 	return (0);
 }

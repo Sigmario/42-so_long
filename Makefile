@@ -6,7 +6,7 @@
 #    By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/16 16:15:09 by julmuntz          #+#    #+#              #
-#    Updated: 2022/08/28 20:42:02 by julmuntz         ###   ########.fr        #
+#    Updated: 2022/08/29 16:22:47 by julmuntz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ SRCS		=	so_long.c				\
 				sl_errors.c				\
 				sl_put_images.c			\
 				sl_inputs.c				\
+				sl_player.c				\
 
 OBJS		= 	$(SRCS:.c=.o)
 
