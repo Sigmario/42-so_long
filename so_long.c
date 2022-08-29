@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/29 18:44:47 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/29 21:58:04 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ int	main(void)
 
 	data.mlx = mlx_init();
 	data.map = sl_getmap(&data);
-	sl_player(&data);
+	sl_player_position(&data);
+	sl_exit_position(&data);
+	sl_collect(&data);
 	if (sl_errors(data) == FALSE)
 	{
 		if (data.nb_line == 0 && data.nb_char == 0)

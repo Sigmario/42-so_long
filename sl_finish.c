@@ -1,41 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_inputs.c                                        :+:      :+:    :+:   */
+/*   sl_finish.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/28 12:54:49 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/29 20:53:14 by julmuntz         ###   ########.fr       */
+/*   Created: 2022/08/29 19:32:32 by julmuntz          #+#    #+#             */
+/*   Updated: 2022/08/29 21:57:59 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	sl_exit_press(t_data *data)
+void	sl_collect(t_data *data)
 {
-	mlx_destroy_window(data->mlx, data->window);
-	ft_printf("So long!\n");
-	exit(EXIT_SUCCESS);
-	return (0);
+	int	line;
+	int	i;
+
+	line = 0;
+	data->count = 0;
+	while (data->map[line])
+	{
+		i = 0;
+		while (data->map[line][i])
+		{
+			if (data->map[line][i] == 'C')
+				data->count++;
+			i++;
+		}
+		line++;
+	}
 }
 
-int	sl_press(int key, t_data *data)
+void	sl_exit(t_data *data)
 {
-	if (key == XK_Escape)
+	if (data->count == 0)
 	{
 		mlx_destroy_window(data->mlx, data->window);
-		ft_printf("So long!\n");
+		ft_printf("Finished!\n");
 		exit(EXIT_SUCCESS);
 	}
-	else if (key == XK_w)
-		sl_up(data);
-	else if (key == XK_a)
-		sl_left(data);
-	else if (key == XK_s)
-		sl_down(data);
-	else if (key == XK_d)
-		sl_right(data);
-	sl_images(data);
-	return (0);
 }

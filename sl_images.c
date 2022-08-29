@@ -49,7 +49,9 @@ int	sl_images(t_data *data)
 				p_mlx_put_image_to_window(data, data->img_0, i, line);
 			if (data->map[line][i] == '1')
 				p_mlx_put_image_to_window(data, data->img_1, i, line);
-			if (data->map[line][i] == 'E')
+			if (data->count > 0 && data->map[line][i] == 'E')
+				p_mlx_put_image_to_window(data, data->img_0, i, line);
+			if (data->count == 0 && data->map[line][i] == 'E')
 				p_mlx_put_image_to_window(data, data->img_e, i, line);
 			if (data->map[line][i] == 'C')
 				p_mlx_put_image_to_window(data, data->img_c, i, line);
