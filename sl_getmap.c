@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_get_map.c                                       :+:      :+:    :+:   */
+/*   sl_getmap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -30,7 +30,7 @@ void	sl_count_line(t_data *data, int fd)
 	close(fd);
 }
 
-char	**sl_get_map(t_data *data)
+char	**sl_getmap(t_data *data)
 {
 	int	fd;
 

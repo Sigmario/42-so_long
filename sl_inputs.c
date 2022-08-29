@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 12:54:49 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/29 18:27:54 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/29 18:44:27 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ int	sl_press(int key, t_data *data)
 	{
 		sl_right(data);
 	}
-	sl_put_images(data);
+	sl_images(data);
 	return (0);
 }

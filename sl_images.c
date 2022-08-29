@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_put_images.c                                    :+:      :+:    :+:   */
+/*   sl_images.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -33,7 +33,7 @@ int	sl_find_images(t_data *data)
 	return (0);
 }
 
-int	sl_put_images(t_data *data)
+int	sl_images(t_data *data)
 {
 	int	line;
 	int	i;

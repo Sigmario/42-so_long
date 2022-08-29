@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/29 18:29:19 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/29 18:44:47 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(void)
 	t_data		data;
 
 	data.mlx = mlx_init();
-	data.map = sl_get_map(&data);
+	data.map = sl_getmap(&data);
 	sl_player(&data);
 	if (sl_errors(data) == FALSE)
 	{
@@ -29,7 +29,7 @@ int	main(void)
 				* 48, "StarWario");
 		mlx_hook(data.window, KeyPress, KeyPressMask, &sl_press, &data);
 		mlx_hook(data.window, ClientMessage, 0, &sl_exit_press, &data);
-		sl_put_images(&data);
+		sl_images(&data);
 		mlx_loop(data.mlx);
 		mlx_destroy_display(data.mlx);
 	}
