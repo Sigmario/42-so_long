@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 12:54:49 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/29 16:57:58 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/29 18:27:54 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,35 @@
 int	sl_exit_press(t_data *data)
 {
 	mlx_destroy_window(data->mlx, data->window);
+	ft_printf("So long!\n");
+	exit(EXIT_SUCCESS);
 	return (0);
 }
 
 int	sl_press(int key, t_data *data)
 {
 	if (key == XK_Escape)
+	{
 		mlx_destroy_window(data->mlx, data->window);
+		ft_printf("So long!\n");
+		exit(EXIT_SUCCESS);
+	}
 	else if (key == XK_w)
-		ft_printf("W: %x\n", key);
+	{
+		sl_up(data);
+	}
 	else if (key == XK_a)
-		ft_printf("A: %x\n", key);
+	{
+		sl_left(data);
+	}
 	else if (key == XK_s)
-		ft_printf("S: %x\n", key);
+	{
+		sl_down(data);
+	}
 	else if (key == XK_d)
-		ft_printf("D: %x\n", key);
+	{
+		sl_right(data);
+	}
+	sl_put_images(data);
 	return (0);
 }
