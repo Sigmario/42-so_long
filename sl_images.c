@@ -17,10 +17,9 @@ static void	*f(void *mlx, char *file, int *width, int *height)
 	return (mlx_xpm_file_to_image(mlx, file, width, height));
 }
 
-static int	p_mlx_put_image_to_window(t_data *data, void *ptr, int i, int line)
+static void	p_mlx_put_image_to_window(t_data *data, void *ptr, int i, int line)
 {
-	return (mlx_put_image_to_window(data->mlx,
-			data->window, ptr, (i * 48), (line * 48)));
+	mlx_put_image_to_window(data->mlx, data->window, ptr, (i * 48), (line * 48));
 }
 
 int	sl_find_images(t_data *data)
@@ -49,9 +48,9 @@ int	sl_images(t_data *data)
 				p_mlx_put_image_to_window(data, data->img_0, i, line);
 			if (data->map[line][i] == '1')
 				p_mlx_put_image_to_window(data, data->img_1, i, line);
-			if (data->count > 0 && data->map[line][i] == 'E')
+			if (data->c_count > 0 && data->map[line][i] == 'E')
 				p_mlx_put_image_to_window(data, data->img_0, i, line);
-			if (data->count == 0 && data->map[line][i] == 'E')
+			if (data->c_count == 0 && data->map[line][i] == 'E')
 				p_mlx_put_image_to_window(data, data->img_e, i, line);
 			if (data->map[line][i] == 'C')
 				p_mlx_put_image_to_window(data, data->img_c, i, line);
