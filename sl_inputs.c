@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 12:54:49 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/30 20:04:33 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/31 20:44:26 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ int	sl_exit_press(t_data *data)
 
 int	sl_press(int key, t_data *data)
 {
+	int	i;
+
+	i = 0;
 	if (key == XK_Escape)
 	{
 		mlx_destroy_window(data->mlx, data->window);
@@ -37,7 +40,6 @@ int	sl_press(int key, t_data *data)
 	else if (key == XK_d)
 		sl_right(data);
 	sl_images(data);
-	ft_printf("E: %d\n", data->e_count);
 	ft_printf("C: %d\n", data->c_count);
 	return (0);
 }

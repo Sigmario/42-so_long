@@ -12,11 +12,11 @@
 
 #include "so_long.h"
 
-void	sl_count_line(t_data *data, int fd)
+void	sl_count_line(t_data *data, int fd, char *path)
 {
 	char	*line;
 
-	fd = open("maps/map1.ber", O_RDONLY);
+	fd = open(path, O_RDONLY);
 	data->nb_line = 0;
 	while (TRUE)
 	{
@@ -30,15 +30,14 @@ void	sl_count_line(t_data *data, int fd)
 	close(fd);
 }
 
-char	**sl_getmap(t_data *data)
+char	**sl_getmap(t_data *data, char *path)
 {
 	int	fd;
 
 	fd = 0;
-	sl_count_line(data, fd);
-	fd = open("maps/map1.ber", O_RDONLY);
+	sl_count_line(data, fd, path);
+	fd = open(path, O_RDONLY);
 	data->x = 0;
-	data->y = 1;
 	data->map = malloc(sizeof(char *) * (data->nb_line + 1));
 	while (TRUE)
 	{

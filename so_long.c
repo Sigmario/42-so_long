@@ -6,25 +6,23 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/30 16:56:34 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/31 21:16:37 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(void)
+int	main(int arc, char **arv)
 {
-	t_data		data;
+	t_data	data;
 
-	data.mlx = mlx_init();
-	data.map = sl_getmap(&data);
-	sl_player_position(&data);
-	sl_exit_position(&data);
-	sl_count(&data);
-	if (sl_errors(data) == FALSE)
+	if (arc == 2)
 	{
-		if (data.nb_line == 0 && data.nb_char == 0)
-			return (ft_printf("Error\nEmpty file.\n"));
+		data.mlx = mlx_init();
+		data.map = sl_getmap(&data, arv[1]);
+		sl_locate(&data);
+		sl_count(&data);
+		sl_errors(data);
 		if (sl_invalid_char_errors(data) == TRUE)
 			return (TRUE);
 		data.window = mlx_new_window(data.mlx,
@@ -36,6 +34,6 @@ int	main(void)
 		mlx_destroy_display(data.mlx);
 	}
 	else
-		return (TRUE);
+		ft_printf("Error\nYou must indicate the map's path as 1st argument.\n");
 	return (0);
 }

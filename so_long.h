@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/30 16:54:26 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/31 20:56:32 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct s_data
 
 	char	**map;
 	int		x;
-	int		y;
 	int		nb_line;
 	int		nb_char;
 	int		w;
@@ -38,23 +37,22 @@ typedef struct s_data
 
 	int		e_line;
 	int		e_char;
+	int		x_char;
 	int		p_line;
 	int		p_char;
 
-	int		e_count;
 	int		c_count;
 	int		p_count;
 }			t_data;
 
-char	**sl_getmap(t_data *data);
+char	**sl_getmap(t_data *data, char *path);
 int		sl_errors(t_data data);
 int		sl_invalid_char_errors(t_data data);
 int		sl_find_images(t_data *data);
 int		sl_images(t_data *data);
 int		sl_press(int key, t_data *data);
 int		sl_exit_press(t_data *data);
-int		sl_player_position(t_data *data);
-int		sl_exit_position(t_data *data);
+int		sl_locate(t_data *data);
 void	sl_up(t_data *data);
 void	sl_left(t_data *data);
 void	sl_down(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 17:39:44 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/30 21:21:42 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/08/31 20:42:35 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,9 @@ void	sl_up(t_data *data)
 			data->c_count--;
 		else if (data->map[data->p_line - 1][data->p_char] == 'E')
 		{
-			if (data->c_count > 0)
-			{
-				data->map[data->p_line][data->p_char] = '0';
-				sl_exit(data);
-				data->map[data->p_line + 1][data->p_char] = 'E';
-			}
 			if (data->c_count == 0)
-			{
-				data->map[data->p_line][data->p_char] = 'P';
 				sl_exit(data);
-				data->map[data->p_line + 1][data->p_char] = '0';
-			}
+			data->p_line++;
 		}
 		data->p_line--;
 		data->map[data->p_line][data->p_char] = 'P';
@@ -53,18 +44,9 @@ void	sl_left(t_data *data)
 			data->c_count--;
 		else if (data->map[data->p_line][data->p_char - 1] == 'E')
 		{
-			if (data->c_count > 0)
-			{
-				data->map[data->p_line][data->p_char] = '0';
-				sl_exit(data);
-				data->map[data->p_line][data->p_char + 1] = 'E';
-			}
 			if (data->c_count == 0)
-			{
-				data->map[data->p_line][data->p_char] = 'P';
 				sl_exit(data);
-				data->map[data->p_line][data->p_char + 1] = '0';
-			}
+			data->p_char++;
 		}
 		data->p_char--;
 		data->map[data->p_line][data->p_char] = 'P';
@@ -85,18 +67,9 @@ void	sl_down(t_data *data)
 			data->c_count--;
 		else if (data->map[data->p_line + 1][data->p_char] == 'E')
 		{
-			if (data->c_count > 0)
-			{
-				data->map[data->p_line][data->p_char] = '0';
-				sl_exit(data);
-				data->map[data->p_line - 1][data->p_char] = 'E';
-			}
 			if (data->c_count == 0)
-			{
-				data->map[data->p_line][data->p_char] = 'P';
 				sl_exit(data);
-				data->map[data->p_line - 1][data->p_char] = '0';
-			}
+			data->p_line--;
 		}
 		data->p_line++;
 		data->map[data->p_line][data->p_char] = 'P';
@@ -117,18 +90,9 @@ void	sl_right(t_data *data)
 			data->c_count--;
 		else if (data->map[data->p_line][data->p_char + 1] == 'E')
 		{
-			if (data->c_count > 0)
-			{
-				data->map[data->p_line][data->p_char] = '0';
-				sl_exit(data);
-				data->map[data->p_line][data->p_char - 1] = 'E';
-			}
 			if (data->c_count == 0)
-			{
-				data->map[data->p_line][data->p_char] = 'P';
 				sl_exit(data);
-				data->map[data->p_line][data->p_char - 1] = '0';
-			}
+			data->p_char--;
 		}
 		data->p_char++;
 		data->map[data->p_line][data->p_char] = 'P';
