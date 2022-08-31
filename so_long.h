@@ -35,9 +35,6 @@ typedef struct s_data
 	void	*img_c;
 	void	*img_p;
 
-	int		e_line;
-	int		e_char;
-	int		x_char;
 	int		p_line;
 	int		p_char;
 
