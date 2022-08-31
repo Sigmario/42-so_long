@@ -12,7 +12,37 @@
 
 #include "so_long.h"
 
-int	sl_exit_press(t_data *data)
+int	sl_count(t_data *data)
+{
+	int	line;
+	int	i;
+
+	line = 0;
+	data->p_count = 0;
+	data->c_count = 0;
+	while (data->map[line])
+	{
+		i = 0;
+		while (data->map[line][i])
+		{
+			if (data->map[line][i] == 'C')
+				data->c_count++;
+			i++;
+		}
+		line++;
+	}
+	return (0);
+}
+
+int	sl_quit(t_data *data)
+{
+	mlx_destroy_window(data->mlx, data->window);
+	ft_printf("Finished with %d moves!\n", data->p_count);
+	exit(EXIT_SUCCESS);
+	return (0);
+}
+
+int	sl_cross(t_data *data)
 {
 	mlx_destroy_window(data->mlx, data->window);
 	ft_printf("So long!\n");
@@ -20,7 +50,7 @@ int	sl_exit_press(t_data *data)
 	return (0);
 }
 
-int	sl_press(int key, t_data *data)
+int	sl_key(int key, t_data *data)
 {
 	if (key == XK_Escape)
 	{
