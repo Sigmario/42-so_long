@@ -12,6 +12,29 @@
 
 #include "so_long.h"
 
+int	sl_locate(t_data *data)
+{
+	int	line;
+	int	i;
+
+	line = 0;
+	while (data->map[line])
+	{
+		i = 0;
+		while (data->map[line][i])
+		{
+			if (data->map[line][i] == 'P')
+			{
+				data->p_line = line;
+				data->p_char = i;
+			}
+			i++;
+		}
+		line++;
+	}
+	return (0);
+}
+
 void	sl_count_line(t_data *data, int fd, char *path)
 {
 	char	*line;
