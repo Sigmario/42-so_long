@@ -22,7 +22,7 @@ void	sl_up(t_data *data)
 		else if (data->map[data->p_line - 1][data->p_char] == 'E')
 		{
 			if (data->c_count == 0)
-				sl_exit(data);
+				sl_quit(data);
 			data->p_line++;
 		}
 		data->p_line--;
@@ -45,7 +45,7 @@ void	sl_left(t_data *data)
 		else if (data->map[data->p_line][data->p_char - 1] == 'E')
 		{
 			if (data->c_count == 0)
-				sl_exit(data);
+				sl_quit(data);
 			data->p_char++;
 		}
 		data->p_char--;
@@ -68,7 +68,7 @@ void	sl_down(t_data *data)
 		else if (data->map[data->p_line + 1][data->p_char] == 'E')
 		{
 			if (data->c_count == 0)
-				sl_exit(data);
+				sl_quit(data);
 			data->p_line--;
 		}
 		data->p_line++;
@@ -91,7 +91,7 @@ void	sl_right(t_data *data)
 		else if (data->map[data->p_line][data->p_char + 1] == 'E')
 		{
 			if (data->c_count == 0)
-				sl_exit(data);
+				sl_quit(data);
 			data->p_char--;
 		}
 		data->p_char++;
