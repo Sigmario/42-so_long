@@ -14,10 +14,8 @@ SRCS		=	so_long.c				\
 				sl_getmap.c				\
 				sl_errors.c				\
 				sl_images.c				\
-				sl_inputs.c				\
-				sl_locate.c				\
+				sl_action.c				\
 				sl_motion.c				\
-				sl_finish.c				\
 
 OBJS		= 	$(SRCS:.c=.o)
 
