@@ -47,14 +47,14 @@ int		sl_errors(t_data data);
 int		sl_invalid_char_errors(t_data data);
 int		sl_find_images(t_data *data);
 int		sl_images(t_data *data);
-int		sl_press(int key, t_data *data);
-int		sl_exit_press(t_data *data);
 int		sl_locate(t_data *data);
+int		sl_count(t_data *data);
+int		sl_key(int key, t_data *data);
+int		sl_cross(t_data *data);
 void	sl_up(t_data *data);
 void	sl_left(t_data *data);
 void	sl_down(t_data *data);
 void	sl_right(t_data *data);
-void	sl_count(t_data *data);
-void	sl_exit(t_data *data);
+int		sl_quit(t_data *data);
 
 #endif
