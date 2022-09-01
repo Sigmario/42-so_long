@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 12:54:49 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/01 17:10:08 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/01 21:19:59 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,16 @@ int	sl_count(t_data *data)
 int	sl_quit(t_data *data)
 {
 	data->p_count++;
-	mlx_destroy_window(data->mlx, data->window);
-	free(data->mlx);
 	ft_printf("Finished with %d moves!\n", data->p_count);
+	sl_free_all(data);
 	exit(EXIT_SUCCESS);
 	return (0);
 }
 
 int	sl_cross(t_data *data)
 {
-	mlx_destroy_window(data->mlx, data->window);
-	free(data->mlx);
 	ft_printf("So long!\n");
+	sl_free_all(data);
 	exit(EXIT_SUCCESS);
 	return (0);
 }
@@ -57,9 +55,8 @@ int	sl_key(int key, t_data *data)
 {
 	if (key == XK_Escape)
 	{
-		mlx_destroy_window(data->mlx, data->window);
-		free(data->mlx);
 		ft_printf("So long!\n");
+		sl_free_all(data);
 		exit(EXIT_SUCCESS);
 	}
 	else if (key == XK_w)

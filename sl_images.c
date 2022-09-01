@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 19:54:40 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/01 17:04:06 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/01 21:04:53 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int	sl_images(t_data *data)
 	int	line;
 	int	i;
 
-	sl_find_images(data);
 	line = -1;
 	while (data->map[++line])
 	{
