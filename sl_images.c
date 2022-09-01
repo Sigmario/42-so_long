@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 19:54:40 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/01 21:04:53 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/01 22:33:51 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 static void	*f(void *mlx, char *file, int *width, int *height)
 {
-	return (mlx_xpm_file_to_image(mlx, file, width, height));
+	void	*tmp;
+
+	tmp = mlx_xpm_file_to_image(mlx, file, width, height);
+	if (!tmp)
+		return (NULL);
+	return (tmp);
 }
 
 static void	p_mlx_put_image_to_window(t_data *data, void *ptr, int i, int line)

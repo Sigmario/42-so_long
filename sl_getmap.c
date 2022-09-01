@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 16:06:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/27 19:33:08 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/01 23:34:52 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,13 @@ void	sl_count_line(t_data *data, int fd, char *path)
 	char	*line;
 
 	fd = open(path, O_RDONLY);
+	if (fd == -1)
+	{
+		mlx_destroy_display(data->mlx);
+		free(data->mlx);
+		exit(EXIT_SUCCESS);
+		return ;
+	}
 	data->nb_line = 0;
 	while (TRUE)
 	{
@@ -60,8 +67,8 @@ char	**sl_getmap(t_data *data, char *path)
 	fd = 0;
 	sl_count_line(data, fd, path);
 	fd = open(path, O_RDONLY);
-	data->x = 0;
 	data->map = malloc(sizeof(char *) * (data->nb_line + 1));
+	data->x = 0;
 	while (TRUE)
 	{
 		data->map[data->x] = get_next_line(fd);

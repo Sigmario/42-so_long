@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/01 21:04:44 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/01 23:22:29 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,15 @@ int	main(int arc, char **arv)
 {
 	t_data	data;
 
+	ft_bzero(&data, sizeof(t_data));
 	if (arc == 2)
 	{
 		data.mlx = mlx_init();
+		if (!data.mlx)
+		{
+			sl_free_all(&data);
+			exit(EXIT_SUCCESS);
+		}
 		data.map = sl_getmap(&data, arv[1]);
 		sl_locate(&data);
 		sl_count(&data);
