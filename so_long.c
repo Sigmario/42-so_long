@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/31 21:16:37 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/01 14:06:23 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	main(int arc, char **arv)
 		mlx_hook(data.window, ClientMessage, 0, &sl_cross, &data);
 		sl_images(&data);
 		mlx_loop(data.mlx);
-		mlx_destroy_display(data.mlx);
 	}
 	else
 		ft_printf("Error\nYou must indicate the map's path as 1st argument.\n");
