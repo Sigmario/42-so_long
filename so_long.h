@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/31 20:56:32 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/01 16:57:32 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_data
 
 	void	*img_0;
 	void	*img_1;
+	void	*img_x;
 	void	*img_e;
 	void	*img_c;
 	void	*img_p;

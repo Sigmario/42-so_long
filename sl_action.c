@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 12:54:49 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/01 14:08:46 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/01 17:10:08 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	sl_count(t_data *data)
 
 int	sl_quit(t_data *data)
 {
+	data->p_count++;
 	mlx_destroy_window(data->mlx, data->window);
 	free(data->mlx);
 	ft_printf("Finished with %d moves!\n", data->p_count);

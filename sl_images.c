@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 19:54:40 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/08/28 21:32:57 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/01 17:04:06 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ int	sl_find_images(t_data *data)
 {
 	data->img_0 = f(data->mlx, "./images/void.xpm", &(data->w), &(data->h));
 	data->img_1 = f(data->mlx, "./images/wall.xpm", &(data->w), &(data->h));
-	data->img_e = f(data->mlx, "./images/exit.xpm", &(data->w), &(data->h));
+	data->img_x = f(data->mlx, "./images/out1.xpm", &(data->w), &(data->h));
+	data->img_e = f(data->mlx, "./images/out4.xpm", &(data->w), &(data->h));
 	data->img_c = f(data->mlx, "./images/coin.xpm", &(data->w), &(data->h));
-	data->img_p = f(data->mlx, "./images/r_w1.xpm", &(data->w), &(data->h));
+	data->img_p = f(data->mlx, "./images/r_p1.xpm", &(data->w), &(data->h));
 	return (0);
 }
 
@@ -50,7 +51,7 @@ int	sl_images(t_data *data)
 			if (data->map[line][i] == '1')
 				p_mlx_put_image_to_window(data, data->img_1, i, line);
 			if (data->c_count > 0 && data->map[line][i] == 'E')
-				p_mlx_put_image_to_window(data, data->img_1, i, line);
+				p_mlx_put_image_to_window(data, data->img_x, i, line);
 			if (data->c_count == 0 && data->map[line][i] == 'E')
 				p_mlx_put_image_to_window(data, data->img_e, i, line);
 			if (data->map[line][i] == 'C')
