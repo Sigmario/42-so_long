@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 16:06:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/01 23:34:52 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/02 21:20:54 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	sl_locate(t_data *data)
 	int	i;
 
 	line = 0;
+	data->direction = 0;
 	while (data->map[line])
 	{
 		i = 0;
@@ -78,4 +79,23 @@ char	**sl_getmap(t_data *data, char *path)
 	}
 	close(fd);
 	return (data->map);
+}
+
+void	sl_skybar(t_data *data)
+{
+	int	line;
+	int	i;
+
+	line = 0;
+	while (data->map[line])
+	{
+		i = 0;
+		while (data->map[line][i])
+		{
+			if (data->map[0][i] == '1')
+				data->map[0][i] = 'S';
+			i++;
+		}
+		line++;
+	}
 }
