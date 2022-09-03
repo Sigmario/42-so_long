@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 19:54:40 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/02 21:11:25 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/03 14:36:30 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,12 @@ static void	*f(void *mlx, char *file, int *width, int *height)
 
 	tmp = mlx_xpm_file_to_image(mlx, file, width, height);
 	if (!tmp)
+	{
+		ft_printf("Error\nInvalid image(s).\n");
+		free(mlx);
+		exit(EXIT_SUCCESS);
 		return (NULL);
+	}
 	return (tmp);
 }
 
@@ -47,10 +52,10 @@ int	sl_find_images(t_data *data)
 
 void	sl_player_images(t_data *data, int line, int i)
 {
-	if (data->direction == UP && data->map[line][i] == 'P')
-		p_mlx_put_image_to_window(data, data->img_u_p, i, line);
 	if (data->direction == 0 && data->map[line][i] == 'P')
 		p_mlx_put_image_to_window(data, data->img_p, i, line);
+	if (data->direction == UP && data->map[line][i] == 'P')
+		p_mlx_put_image_to_window(data, data->img_u_p, i, line);
 	if (data->direction == LEFT && data->map[line][i] == 'P')
 		p_mlx_put_image_to_window(data, data->img_l_p, i, line);
 	if (data->direction == DOWN && data->map[line][i] == 'P')

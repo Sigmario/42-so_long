@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:51:18 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/01 22:39:06 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/03 18:02:15 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,11 @@ int	sl_char_errors_1(t_data data)
 
 int	sl_errors(t_data data)
 {
-	static int	line;
-	int			i;
+	int	line;
+	int	i;
 
-	while (data.map[++line])
+	line = 0;
+	while (data.map[line])
 	{
 		if (ft_linelen(data.map[line]) != ft_linelen(data.map[0]))
 			return (ft_printf("Error\nNot rectangular.\n"));
@@ -94,12 +95,13 @@ int	sl_errors(t_data data)
 			if ((data.map[0][i] != '1' && data.map[0][i] != '\n')
 				|| (data.map[data.nb_line - 1][i] != '1'
 					&& data.map[data.nb_line - 1][i] != '\0'))
-				return (ft_printf("Error\nAperture(s) found in walls.\n"));
+				return (ft_printf("Error\nInvalid walls.\n"), TRUE);
 			if (data.map[line][0] != '1'
 				|| data.map[line][ft_linelen(data.map[line] + 1)] != '1')
-				return (ft_printf("Error\nAperture(s) found in walls.\n"));
+				return (ft_printf("Error\nInvalid walls.\n"), TRUE);
 			i++;
 		}
+		line++;
 		if (sl_char_errors_1(data) == TRUE)
 			return (TRUE);
 	}

@@ -6,13 +6,13 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 12:54:49 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/02 17:59:38 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/03 18:26:03 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	sl_count(t_data *data)
+void	sl_count(t_data *data)
 {
 	int	line;
 	int	i;
@@ -31,14 +31,28 @@ int	sl_count(t_data *data)
 		}
 		line++;
 	}
-	return (0);
+}
+
+void	sl_score(t_data *data)
+{
+	char	*nb;
+
+	nb = ft_itoa(data->p_count);
+	mlx_string_put(data->mlx, data->window, 8, 20, 0xFFFFFF, "SCORE");
+	mlx_string_put(data->mlx, data->window, 8, 38, 0xFFFF00, nb);
+	mlx_string_put(data->mlx, data->window, 64, 20, 0xFFFFFF, "HI-SCORE");
+	if (data->p_count <= 42)
+		mlx_string_put(data->mlx, data->window, 64, 38, 0xFFFF00, "42");
+	else
+		mlx_string_put(data->mlx, data->window, 64, 38, 0xFFFF00, nb);
+	free(nb);
 }
 
 int	sl_quit(t_data *data)
 {
 	data->p_count++;
 	ft_printf("Finished with %d moves!\n", data->p_count);
-	sl_free_all(data);
+	sl_free(data);
 	exit(EXIT_SUCCESS);
 	return (0);
 }
@@ -46,7 +60,7 @@ int	sl_quit(t_data *data)
 int	sl_cross(t_data *data)
 {
 	ft_printf("So long!\n");
-	sl_free_all(data);
+	sl_free(data);
 	exit(EXIT_SUCCESS);
 	return (0);
 }
@@ -56,7 +70,7 @@ int	sl_key(int key, t_data *data)
 	if (key == XK_Escape)
 	{
 		ft_printf("So long!\n");
-		sl_free_all(data);
+		sl_free(data);
 		exit(EXIT_SUCCESS);
 	}
 	else if (key == XK_w)
@@ -68,5 +82,6 @@ int	sl_key(int key, t_data *data)
 	else if (key == XK_d)
 		sl_right(data);
 	sl_images(data);
+	sl_score(data);
 	return (0);
 }

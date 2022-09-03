@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 13:59:55 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/02 21:24:47 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/03 15:20:26 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	sl_free_map(t_data *data)
 	free(data->map);
 }
 
-void	sl_free_all(t_data *data)
+void	sl_free(t_data *data)
 {
 	sl_free_map(data);
 	sl_free_image(data);

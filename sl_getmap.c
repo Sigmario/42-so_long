@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 16:06:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/02 21:20:54 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/03 21:07:53 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	sl_locate(t_data *data)
 		i = 0;
 		while (data->map[line][i])
 		{
+			if (data->map[0][i] == '1')
+				data->map[0][i] = 'S';
 			if (data->map[line][i] == 'P')
 			{
 				data->p_line = line;
@@ -36,17 +38,17 @@ int	sl_locate(t_data *data)
 	return (0);
 }
 
-void	sl_count_line(t_data *data, int fd, char *path)
+int	sl_count_line(t_data *data, int fd, char *path)
 {
 	char	*line;
 
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 	{
-		mlx_destroy_display(data->mlx);
-		free(data->mlx);
+		close(fd);
+		ft_printf("Error\nYou must indicate one valid path.\n");
 		exit(EXIT_SUCCESS);
-		return ;
+		return (0);
 	}
 	data->nb_line = 0;
 	while (TRUE)
@@ -59,6 +61,7 @@ void	sl_count_line(t_data *data, int fd, char *path)
 		free(line);
 	}
 	close(fd);
+	return (0);
 }
 
 char	**sl_getmap(t_data *data, char *path)
@@ -79,23 +82,4 @@ char	**sl_getmap(t_data *data, char *path)
 	}
 	close(fd);
 	return (data->map);
-}
-
-void	sl_skybar(t_data *data)
-{
-	int	line;
-	int	i;
-
-	line = 0;
-	while (data->map[line])
-	{
-		i = 0;
-		while (data->map[line][i])
-		{
-			if (data->map[0][i] == '1')
-				data->map[0][i] = 'S';
-			i++;
-		}
-		line++;
-	}
 }
