@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_action.c                                        :+:      :+:    :+:   */
+/*   sl_action.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 12:54:49 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/04 20:24:14 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/04 20:17:57 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	sl_count(t_data *data)
 {
@@ -31,6 +31,21 @@ void	sl_count(t_data *data)
 		}
 		line++;
 	}
+}
+
+void	sl_score(t_data *data)
+{
+	char	*nb;
+
+	nb = ft_itoa(data->p_count);
+	mlx_string_put(data->mlx, data->window, 8, 20, 0xFFFFFF, "SCORE");
+	mlx_string_put(data->mlx, data->window, 8, 38, 0xFFFF00, nb);
+	mlx_string_put(data->mlx, data->window, 64, 20, 0xFFFFFF, "HI-SCORE");
+	if (data->p_count < 42)
+		mlx_string_put(data->mlx, data->window, 64, 38, 0xFFD700, "42");
+	else
+		mlx_string_put(data->mlx, data->window, 64, 38, 0x00FFFF, nb);
+	free(nb);
 }
 
 int	sl_quit(t_data *data)
@@ -67,5 +82,6 @@ int	sl_key(int key, t_data *data)
 	else if (key == XK_d)
 		sl_right(data);
 	sl_images(data);
+	sl_score(data);
 	return (0);
 }
