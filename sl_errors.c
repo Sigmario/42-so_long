@@ -6,13 +6,25 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:51:18 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/03 18:02:15 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/04 17:40:12 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	sl_invalid_char_errors(t_data data)
+int	sl_invalid_extension(char *filename)
+{
+	char	*ber;
+
+	if (!filename)
+		return (FALSE);
+	ber = ft_strrchr(filename, '.');
+	if (ft_strncmp(ber, ".ber", 4))
+		return (FALSE);
+	return (TRUE);
+}
+
+int	sl_invalid_chars(t_data data)
 {
 	int	line;
 	int	i;

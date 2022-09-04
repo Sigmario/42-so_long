@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 16:06:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/03 21:07:53 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/04 18:30:46 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,16 @@ int	sl_locate(t_data *data)
 	return (0);
 }
 
-int	sl_count_line(t_data *data, int fd, char *path)
+void	sl_count_line(t_data *data, int fd, char *path)
 {
 	char	*line;
 
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 	{
-		close(fd);
-		ft_printf("Error\nYou must indicate one valid path.\n");
+		ft_printf("Error\nYou must indicate the map's path as 1st argument.\n");
 		exit(EXIT_SUCCESS);
-		return (0);
+		return ;
 	}
 	data->nb_line = 0;
 	while (TRUE)
@@ -61,7 +60,6 @@ int	sl_count_line(t_data *data, int fd, char *path)
 		free(line);
 	}
 	close(fd);
-	return (0);
 }
 
 char	**sl_getmap(t_data *data, char *path)
@@ -71,7 +69,9 @@ char	**sl_getmap(t_data *data, char *path)
 	fd = 0;
 	sl_count_line(data, fd, path);
 	fd = open(path, O_RDONLY);
-	data->map = malloc(sizeof(char *) * (data->nb_line + 1));
+	data->map = malloc(sizeof(char *) * (data->nb_line * 1));
+	if (data->map == NULL)
+		return (NULL);
 	data->x = 0;
 	while (TRUE)
 	{
@@ -80,6 +80,7 @@ char	**sl_getmap(t_data *data, char *path)
 			break ;
 		data->x++;
 	}
+	free(data->map);
 	close(fd);
 	return (data->map);
 }

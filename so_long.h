@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/03 18:13:42 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/04 17:35:02 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ typedef struct s_data
 
 char		**sl_getmap(t_data *data, char *path);
 int			sl_errors(t_data data);
-int			sl_invalid_char_errors(t_data data);
+int			sl_invalid_extension(char *filename);
+int			sl_invalid_chars(t_data data);
 int			sl_find_images(t_data *data);
 int			sl_images(t_data *data);
 int			sl_locate(t_data *data);
@@ -71,5 +72,6 @@ void		sl_down(t_data *data);
 void		sl_right(t_data *data);
 int			sl_quit(t_data *data);
 void		sl_free(t_data *data);
+void		sl_free_map(t_data *data);
 
 #endif
