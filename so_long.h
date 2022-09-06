@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/04 17:35:02 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/06 21:24:56 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_data
 	int		p_count;
 
 	int		direction;
+
 }			t_data;
 
 char		**sl_getmap(t_data *data, char *path);
@@ -73,5 +74,6 @@ void		sl_right(t_data *data);
 int			sl_quit(t_data *data);
 void		sl_free(t_data *data);
 void		sl_free_map(t_data *data);
+void		sl_free_image(t_data *data);
 
 #endif

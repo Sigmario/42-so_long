@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/04 20:23:38 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/06 20:25:18 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,11 @@ int	sl_start(t_data data)
 {
 	data.mlx = mlx_init();
 	if (!data.mlx)
-	{
-		sl_free(data.mlx);
 		exit(EXIT_FAILURE);
-	}
 	if (sl_errors(data) == TRUE)
-		return (TRUE);
+		return (exit(EXIT_FAILURE), TRUE);
 	if (sl_invalid_chars(data) == TRUE)
-		return (TRUE);
+		return (exit(EXIT_FAILURE), TRUE);
 	sl_count(&data);
 	sl_locate(&data);
 	data.window = mlx_new_window(data.mlx,

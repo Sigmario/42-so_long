@@ -52,10 +52,10 @@ int	sl_find_images(t_data *data)
 
 void	sl_player_images(t_data *data, int line, int i)
 {
-	if (data->direction == UP && data->map[line][i] == 'P')
-		p_mlx_put_image_to_window(data, data->img_u_p, i, line);
 	if (data->direction == 0 && data->map[line][i] == 'P')
 		p_mlx_put_image_to_window(data, data->img_p, i, line);
+	if (data->direction == UP && data->map[line][i] == 'P')
+		p_mlx_put_image_to_window(data, data->img_u_p, i, line);
 	if (data->direction == LEFT && data->map[line][i] == 'P')
 		p_mlx_put_image_to_window(data, data->img_l_p, i, line);
 	if (data->direction == DOWN && data->map[line][i] == 'P')

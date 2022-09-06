@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 13:59:55 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/04 19:14:09 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/06 21:21:51 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,13 @@ void	sl_free_map(t_data *data)
 
 void	sl_free(t_data *data)
 {
-	sl_free_map(data);
-	sl_free_image(data);
-	mlx_clear_window(data->mlx, data->window);
-	mlx_destroy_window(data->mlx, data->window);
-	mlx_destroy_display(data->mlx);
-	free(data->mlx);
+	if (data)
+	{
+		sl_free_map(data);
+		sl_free_image(data);
+		mlx_clear_window(data->mlx, data->window);
+		mlx_destroy_window(data->mlx, data->window);
+		mlx_destroy_display(data->mlx);
+		free(data->mlx);
+	}
 }

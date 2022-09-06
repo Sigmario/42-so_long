@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_getmap.c                                  :+:      :+:    :+:   */
+/*   sl_getmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 16:06:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/04 20:20:28 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/06 21:10:08 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	sl_count_line(t_data *data, int fd, char *path)
 	if (fd == -1)
 	{
 		ft_printf("Error\nYou must indicate the map's path as 1st argument.\n");
-		exit(EXIT_SUCCESS);
 		return ;
 	}
 	data->nb_line = 0;

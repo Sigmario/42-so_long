@@ -35,8 +35,7 @@ void	sl_count(t_data *data)
 
 int	sl_quit(t_data *data)
 {
-	data->p_count++;
-	ft_printf("Finished with %d moves!\n", data->p_count);
+	ft_printf("Finished with %d moves!\n", data->p_count + 1);
 	sl_free(data);
 	exit(EXIT_SUCCESS);
 	return (0);

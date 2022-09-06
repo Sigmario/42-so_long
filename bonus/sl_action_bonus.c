@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_action.c                                  :+:      :+:    :+:   */
+/*   sl_action_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 12:54:49 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/04 20:17:57 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/06 21:10:21 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ void	sl_score(t_data *data)
 
 int	sl_quit(t_data *data)
 {
-	data->p_count++;
-	ft_printf("Finished with %d moves!\n", data->p_count);
+	ft_printf("Finished with %d moves!\n", data->p_count + 1);
 	sl_free(data);
 	exit(EXIT_SUCCESS);
 	return (0);
