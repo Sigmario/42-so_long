@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 16:06:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/06 21:16:00 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/06 23:05:35 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,7 @@ void	sl_count_line(t_data *data, int fd, char *path)
 
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
-	{
-		ft_printf("Error\nYou must indicate the map's path as 1st argument.\n");
 		return ;
-	}
 	data->nb_line = 0;
 	while (TRUE)
 	{
@@ -69,7 +66,7 @@ char	**sl_getmap(t_data *data, char *path)
 	sl_count_line(data, fd, path);
 	if (!data->nb_line)
 	{
-		ft_printf("Error\nEmpty file.\n");
+		ft_printf("Error\nIt's empty.\n");
 		exit(EXIT_SUCCESS);
 	}
 	fd = open(path, O_RDONLY);

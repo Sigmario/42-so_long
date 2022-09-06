@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/06 20:25:18 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/06 23:07:21 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	sl_start(t_data data)
 	sl_count(&data);
 	sl_locate(&data);
 	data.window = mlx_new_window(data.mlx,
-			data.nb_char * 48, data.nb_line * 48, "Dig Dug");
+			data.nb_char * 48, data.nb_line * 48, "DIG DUG");
 	sl_find_images(&data);
 	sl_images(&data);
 	mlx_hook(data.window, KeyPress, KeyPressMask, &sl_key, &data);
@@ -37,18 +37,15 @@ int	main(int arc, char **arv)
 {
 	t_data	data;
 
-	if (arc == 2)
+	if (arc != 2)
+		return (ft_printf("Error\nYou need a map path in the 1st argument.\n"));
+	ft_bzero(&data, sizeof(t_data));
+	data.map = sl_getmap(&data, arv[1]);
+	if (sl_invalid_extension(arv[1]) == FALSE)
 	{
-		ft_bzero(&data, sizeof(t_data));
-		data.map = sl_getmap(&data, arv[1]);
-		if (sl_invalid_extension(arv[1]) == FALSE)
-		{
-			sl_free_map(&data);
-			return (ft_printf("Error\nNot a \".ber\" file.\n"), FALSE);
-		}
-		sl_start(data);
+		sl_free_map(&data);
+		return (ft_printf("Error\nNot a \".ber\" file.\n"), FALSE);
 	}
-	else
-		ft_printf("Error\nYou must indicate the map's path as 1st argument.\n");
+	sl_start(data);
 	return (0);
 }
