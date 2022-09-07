@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 16:06:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/06 23:05:44 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/07 13:39:08 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char	**sl_getmap(t_data *data, char *path)
 	fd = open(path, O_RDONLY);
 	data->map = malloc(sizeof(char *) * (data->nb_line + 1));
 	if (data->map == NULL)
-		return (NULL);
+		return (FALSE, NULL);
 	data->x = 0;
 	while (TRUE)
 	{

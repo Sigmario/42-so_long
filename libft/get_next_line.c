@@ -12,6 +12,8 @@
 
 #include "libft.h"
 
+#include "libft.h"
+
 char	*ft_until_nl(char *str)
 {
 	int		i;
@@ -32,7 +34,7 @@ char	*ft_until_nl(char *str)
 		line[i] = str[i];
 		i++;
 	}
-	line[i] = 0;
+	line[i] = '\0';
 	return (line);
 }
 
@@ -58,7 +60,7 @@ char	*ft_post_nl(char *str)
 	len = 0;
 	while (str[i])
 		buf[len++] = str[i++];
-	buf[len] = 0;
+	buf[len] = '\0';
 	return (free(str), buf);
 }
 
@@ -78,12 +80,12 @@ char	*get_next_line(int fd)
 		if (size == -1 || (size == 0 && ft_strlen(str) == 0))
 			return (free(str), NULL);
 		buf[size] = '\0';
-		if (buf[0] != '\0')
+		if (str == NULL)
+			str = ft_strdup(buf);
+		else if (buf[0] != '\0')
 			str = ft_strjoin(str, buf);
 		if (ft_strchr(str, '\n'))
 			break ;
-		if (str == NULL)
-			str = ft_strdup(buf);
 	}
 	line = ft_until_nl(str);
 	str = ft_post_nl(str);

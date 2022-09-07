@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/06 23:07:21 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/07 14:09:24 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	sl_start(t_data data)
 {
+	if (sl_errors(data) == TRUE)
+		return (sl_free_map(&data), exit(EXIT_FAILURE), TRUE);
+	if (sl_invalid_chars(data) == TRUE)
+		return (sl_free_map(&data), exit(EXIT_FAILURE), TRUE);
 	data.mlx = mlx_init();
 	if (!data.mlx)
 		exit(EXIT_FAILURE);
-	if (sl_errors(data) == TRUE)
-		return (exit(EXIT_FAILURE), TRUE);
-	if (sl_invalid_chars(data) == TRUE)
-		return (exit(EXIT_FAILURE), TRUE);
 	sl_count(&data);
 	sl_locate(&data);
 	data.window = mlx_new_window(data.mlx,
@@ -41,11 +41,11 @@ int	main(int arc, char **arv)
 		return (ft_printf("Error\nYou need a map path in the 1st argument.\n"));
 	ft_bzero(&data, sizeof(t_data));
 	data.map = sl_getmap(&data, arv[1]);
+	if (!data.map)
+		return (0);
+	sl_free_map(&data);
 	if (sl_invalid_extension(arv[1]) == FALSE)
-	{
-		sl_free_map(&data);
 		return (ft_printf("Error\nNot a \".ber\" file.\n"), FALSE);
-	}
 	sl_start(data);
 	return (0);
 }
