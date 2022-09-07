@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:51:18 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/06 21:10:15 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/07 18:28:41 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int	sl_invalid_chars(t_data data)
 			if (data.map[line][i] != '0' && data.map[line][i] != '1'
 				&& data.map[line][i] != 'E' && data.map[line][i] != 'C'
 				&& data.map[line][i] != 'P' && data.map[line][i] != '\n')
-				return (ft_printf("Error\nInvalid char(s).\n"), TRUE);
+				return (sl_free_map(&data),
+					ft_printf("Error\nInvalid char(s).\n"), TRUE);
 			i++;
 		}
 		line++;
@@ -100,7 +101,7 @@ int	sl_errors(t_data data)
 	int	line;
 	int	i;
 
-	if (data.map == NULL)
+	if (!data.map)
 		return (1);
 	line = -1;
 	while (data.map[++line])
