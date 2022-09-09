@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 12:54:49 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/06 21:10:21 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/09 18:02:01 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,12 @@ void	sl_score(t_data *data)
 
 int	sl_quit(t_data *data)
 {
-	ft_printf("Finished with %d moves!\n", data->p_count + 1);
-	sl_free(data);
-	exit(EXIT_SUCCESS);
+	if (data->c_count == 0)
+	{
+		ft_printf("Finished with %d moves!\n", data->p_count + 1);
+		sl_free(data);
+		exit(EXIT_SUCCESS);
+	}
 	return (0);
 }
 

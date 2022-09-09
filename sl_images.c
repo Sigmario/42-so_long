@@ -38,9 +38,9 @@ int	sl_find_images(t_data *data)
 	data->img_s = f(data->mlx, "./images/sky.xpm", &(data->w), &(data->h));
 	data->img_0 = f(data->mlx, "./images/void.xpm", &(data->w), &(data->h));
 	data->img_1 = f(data->mlx, "./images/wall.xpm", &(data->w), &(data->h));
-	data->img_x = f(data->mlx, "./images/rock.xpm", &(data->w), &(data->h));
-	data->img_e = f(data->mlx, "./images/exit.xpm", &(data->w), &(data->h));
 	data->img_c = f(data->mlx, "./images/coin.xpm", &(data->w), &(data->h));
+	data->img_e = f(data->mlx, "./images/exit0.xpm", &(data->w), &(data->h));
+	data->img_z = f(data->mlx, "./images/exitD.xpm", &(data->w), &(data->h));
 	data->img_p = f(data->mlx, "./images/start.xpm", &(data->w), &(data->h));
 	data->img_u_p = f(data->mlx, "./images/u_p.xpm", &(data->w), &(data->h));
 	data->img_l_p = f(data->mlx, "./images/l_p.xpm", &(data->w), &(data->h));
@@ -52,6 +52,10 @@ int	sl_find_images(t_data *data)
 
 void	sl_player_images(t_data *data, int line, int i)
 {
+	if (data->map[line][i] == 'Z')
+		p_mlx_put_image_to_window(data, data->img_z, i, line);
+	if (data->map[line][i] == 'D')
+		p_mlx_put_image_to_window(data, data->img_dig, i, line);
 	if (data->direction == 0 && data->map[line][i] == 'P')
 		p_mlx_put_image_to_window(data, data->img_p, i, line);
 	if (data->direction == UP && data->map[line][i] == 'P')
@@ -62,8 +66,6 @@ void	sl_player_images(t_data *data, int line, int i)
 		p_mlx_put_image_to_window(data, data->img_d_p, i, line);
 	if (data->direction == RIGHT && data->map[line][i] == 'P')
 		p_mlx_put_image_to_window(data, data->img_r_p, i, line);
-	if (data->map[line][i] == 'D')
-		p_mlx_put_image_to_window(data, data->img_dig, i, line);
 }
 
 int	sl_images(t_data *data)
@@ -84,7 +86,7 @@ int	sl_images(t_data *data)
 			if (data->map[line][i] == '0')
 				p_mlx_put_image_to_window(data, data->img_0, i, line);
 			if (data->c_count > 0 && data->map[line][i] == 'E')
-				p_mlx_put_image_to_window(data, data->img_x, i, line);
+				p_mlx_put_image_to_window(data, data->img_0, i, line);
 			if (data->c_count == 0 && data->map[line][i] == 'E')
 				p_mlx_put_image_to_window(data, data->img_e, i, line);
 			if (data->map[line][i] == 'C')

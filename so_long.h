@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/06 21:24:56 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/09 18:05:19 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_data
 	void	*img_s;
 	void	*img_0;
 	void	*img_1;
-	void	*img_x;
+	void	*img_z;
 	void	*img_e;
 	void	*img_c;
 	void	*img_p;
@@ -47,6 +47,8 @@ typedef struct s_data
 	void	*img_r_p;
 	void	*img_dig;
 
+	int		e_line;
+	int		e_char;
 	int		p_line;
 	int		p_char;
 
