@@ -6,11 +6,46 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/07 21:57:31 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/11 20:39:16 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+void	sl_scan(t_data *data)
+{
+	int line;
+	int	i;
+
+	line = data->p_line;
+	while (TRUE)
+	{
+		i = data->p_char;
+		if (data->map[line - 1][i] != '1' && data->map[line - 1][i] != 'S')
+		{
+			data->map[line - 1][i] = 'P';
+			data->u_check = data->map[line - 1][i];
+		}
+		if (data->map[line][i - 1] != '1' && data->map[line][i - 1] != 'S')
+		{
+			data->map[line][i - 1] = 'P';
+			data->l_check = data->map[line][i - 1];
+		}
+		if (data->map[line + 1][i] != '1' && data->map[line + 1][i] != 'S')
+		{
+			data->map[line + 1][i] = 'P';
+			data->d_check = data->map[line + 1][i];
+		}
+		if (data->map[line][i + 1] != '1' && data->map[line][i + 1] != 'S')
+		{
+			data->map[line][i + 1] = 'P';
+			data->r_check = data->map[line][i + 1];
+		}
+		return ;
+	}
+}
+
+
 
 int	sl_start(t_data data)
 {
@@ -23,6 +58,10 @@ int	sl_start(t_data data)
 		exit(EXIT_FAILURE);
 	sl_count(&data);
 	sl_locate(&data);
+	sl_scan(&data);
+	int y = -1;
+	while (data.map[++y])
+		ft_printf("%s", data.map[y]);
 	data.window = mlx_new_window(data.mlx,
 			data.nb_char * 48, data.nb_line * 48, "DIG DUG");
 	if (!data.window)
@@ -34,7 +73,6 @@ int	sl_start(t_data data)
 	mlx_hook(data.window, KeyPress, KeyPressMask, &sl_key, &data);
 	mlx_hook(data.window, ClientMessage, 0, &sl_cross, &data);
 	mlx_loop(data.mlx);
-	sl_free(&data);
 	return (0);
 }
 

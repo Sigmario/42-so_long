@@ -6,11 +6,26 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:51:18 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/07 18:28:41 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/11 14:28:45 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+// int	sl_issolution(t_data data)
+// {
+// 	if (data.map[data.p_line][data.p_char] != '1' && data.map[data.p_line][data.p_char] != 'E')
+// 		return (TRUE);
+
+// 	if (sl_issolution(map, p_line, p_char + 1) == TRUE)
+// 		return (TRUE);
+// 	if (sl_issolution(map, p_line, p_char - 1) == TRUE)
+// 		return (TRUE);
+// 	if (sl_issolution(map, p_line + 1, p_char) == TRUE)
+// 		return (TRUE);
+// 	if (sl_issolution(map, p_line - 1, p_char) == TRUE)
+// 		return (TRUE);
+// }
 
 int	sl_invalid_extension(char *filename)
 {

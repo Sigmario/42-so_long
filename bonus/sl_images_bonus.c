@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 19:54:40 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/09 17:42:02 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/11 16:48:16 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ static void	p_mlx_put_image_to_window(t_data *data, void *ptr, int i, int line)
 
 int	sl_find_images(t_data *data)
 {
+	/*//////////TMP////////////////////////////////////////////////////*/
+	data->img_a = f(data->mlx, "./images/reachable.xpm", &(data->w), &(data->h));
+	/*//////////TMP////////////////////////////////////////////////////*/
 	data->img_s = f(data->mlx, "./images/sky.xpm", &(data->w), &(data->h));
 	data->img_0 = f(data->mlx, "./images/void.xpm", &(data->w), &(data->h));
 	data->img_1 = f(data->mlx, "./images/wall.xpm", &(data->w), &(data->h));
@@ -79,6 +82,10 @@ int	sl_images(t_data *data)
 		i = -1;
 		while (data->map[line][++i])
 		{
+/*//////////TMP/////////////////////////////////////////////////////*/
+			if (data->map[line][i] == 'A')
+				p_mlx_put_image_to_window(data, data->img_a, i, line);
+/*//////////TMP/////////////////////////////////////////////////////*/
 			if (data->map[line][i] == 'S')
 				p_mlx_put_image_to_window(data, data->img_s, i, line);
 			if (data->map[line][i] == '1')

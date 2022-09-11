@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/09 17:27:07 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/11 20:39:46 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ typedef struct s_data
 	int		w;
 	int		h;
 
+/*//////////TMP//////////////*/
+	void	*img_a;
+/*//////////TMP//////////////*/
 	void	*img_s;
 	void	*img_0;
 	void	*img_1;
@@ -56,6 +59,11 @@ typedef struct s_data
 	int		p_count;
 
 	int		direction;
+
+	int		u_check;
+	int		l_check;
+	int		d_check;
+	int		r_check;
 
 }			t_data;
 
