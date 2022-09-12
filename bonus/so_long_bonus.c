@@ -6,46 +6,58 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/11 20:39:16 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/13 01:30:13 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	sl_scan(t_data *data)
+int	sl_scan(t_data *data)
 {
 	int line;
-	int	i;
+	int i;
+	int loop;
 
-	line = data->p_line;
-	while (TRUE)
+	loop = 1;
+	while (loop)
 	{
-		i = data->p_char;
-		if (data->map[line - 1][i] != '1' && data->map[line - 1][i] != 'S')
+		line = 0;
+		while (data->map[line])
 		{
-			data->map[line - 1][i] = 'P';
-			data->u_check = data->map[line - 1][i];
+			i = 0;
+			while (data->map[line][i])
+			{
+				loop = 0;
+				if (data->map[line][i] == 'P')
+				{
+					if (data->map[line + 1][i] != '1' && data->map[line + 1][i] != 'S')
+					{
+						data->map[line + 1][i] = 'P';
+						loop = 1;
+					}
+					if (data->map[line - 1][i] != '1' && data->map[line - 1][i] != 'S')
+					{
+						data->map[line - 1][i] = 'P';
+						loop = 1;
+					}
+					if (data->map[line][i + 1] != '1' && data->map[line][i + 1] != 'S')
+					{
+						data->map[line][i + 1] = 'P';
+						loop = 1;
+					}
+					if (data->map[line][i - 1] != '1' && data->map[line][i - 1] != 'S')
+					{
+						data->map[line][i - 1] = 'P';
+						loop = 1;
+					}
+				}
+				i++;
+			}
+			line++;
 		}
-		if (data->map[line][i - 1] != '1' && data->map[line][i - 1] != 'S')
-		{
-			data->map[line][i - 1] = 'P';
-			data->l_check = data->map[line][i - 1];
-		}
-		if (data->map[line + 1][i] != '1' && data->map[line + 1][i] != 'S')
-		{
-			data->map[line + 1][i] = 'P';
-			data->d_check = data->map[line + 1][i];
-		}
-		if (data->map[line][i + 1] != '1' && data->map[line][i + 1] != 'S')
-		{
-			data->map[line][i + 1] = 'P';
-			data->r_check = data->map[line][i + 1];
-		}
-		return ;
 	}
+	return (0);
 }
-
-
 
 int	sl_start(t_data data)
 {
@@ -62,8 +74,8 @@ int	sl_start(t_data data)
 	int y = -1;
 	while (data.map[++y])
 		ft_printf("%s", data.map[y]);
-	data.window = mlx_new_window(data.mlx,
-			data.nb_char * 48, data.nb_line * 48, "DIG DUG");
+	data.window = mlx_new_window(data.mlx, data.nb_char * 48, data.nb_line * 48,
+			"DIG DUG   (c)  1982 Atari, Inc.  All rights reserved.");
 	if (!data.window)
 		return (0);
 	sl_find_images(&data);
