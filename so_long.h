@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/09 18:05:19 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/14 15:47:50 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ typedef struct s_data
 
 }			t_data;
 
-char		**sl_getmap(t_data *data, char *path);
+char		**sl_getmap(t_data *data, char *filename);
 int			sl_errors(t_data data);
 int			sl_invalid_extension(char *filename);
 int			sl_invalid_chars(t_data data);

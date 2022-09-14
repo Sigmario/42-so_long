@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/14 12:57:29 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/14 20:26:12 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,25 +59,22 @@ typedef struct s_data
 	int		e_count;
 	int		c_count;
 	int		p_count;
+	int		c_count_t;
 
 	int		direction;
 
-	int		u_check;
-	int		l_check;
-	int		d_check;
-	int		r_check;
-
 }			t_data;
 
-char		**sl_getmap(t_data *data, char *path);
+char		**sl_getmap(t_data *data, char *filename);
 int			sl_errors(t_data data);
 int			sl_invalid_extension(char *filename);
 int			sl_invalid_chars(t_data data);
-int			sl_invalid_path(t_data *data);
+int			sl_invalid_path(t_data *data, char *filename);
 int			sl_find_images(t_data *data);
 int			sl_images(t_data *data);
 int			sl_locate(t_data *data);
 void		sl_count(t_data *data);
+void		sl_count_t(t_data *data);
 int			sl_key(int key, t_data *data);
 int			sl_cross(t_data *data);
 void		sl_up(t_data *data);

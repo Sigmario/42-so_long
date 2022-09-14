@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 16:06:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/13 15:29:30 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/14 20:29:10 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,32 @@ int	sl_locate(t_data *data)
 	return (0);
 }
 
-void	sl_count_line(t_data *data, int fd, char *path)
+void	sl_count(t_data *data)
+{
+	int	line;
+	int	i;
+
+	line = 0;
+	data->p_count = 0;
+	data->c_count = 0;
+	while (data->map[line])
+	{
+		i = 0;
+		while (data->map[line][i])
+		{
+			if (data->map[line][i] == 'C')
+				data->c_count++;
+			i++;
+		}
+		line++;
+	}
+}
+
+void	sl_count_line(t_data *data, int fd, char *filename)
 {
 	char	*line;
 
-	fd = open(path, O_RDONLY);
+	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return ;
 	data->nb_line = 0;
@@ -59,18 +80,18 @@ void	sl_count_line(t_data *data, int fd, char *path)
 	close(fd);
 }
 
-char	**sl_getmap(t_data *data, char *path)
+char	**sl_getmap(t_data *data, char *filename)
 {
 	int	fd;
 
 	fd = 0;
-	sl_count_line(data, fd, path);
+	sl_count_line(data, fd, filename);
 	if (!data->nb_line)
 	{
 		ft_printf("Error\nIt's empty.\n");
 		exit(EXIT_SUCCESS);
 	}
-	fd = open(path, O_RDONLY);
+	fd = open(filename, O_RDONLY);
 	data->map = malloc(sizeof(char *) * (data->nb_line + 1));
 	if (data->map == NULL)
 		return (NULL);

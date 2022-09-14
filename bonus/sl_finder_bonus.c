@@ -12,12 +12,33 @@
 
 #include "so_long_bonus.h"
 
+void	sl_count_t(t_data *data)
+{
+	int	line;
+	int	i;
+
+	line = 0;
+	data->e_count = 1;
+	data->c_count_t = 0;
+	while (data->map[line])
+	{
+		i = 0;
+		while (data->map[line][i])
+		{
+			if (data->map[line][i] == 'C')
+				data->c_count_t++;
+			i++;
+		}
+		line++;
+	}
+}
+
 void	sl_find(t_data *data, int loop, int line, int i)
 {
 	if (data->map[line][i] == 'E')
-		data->e_count++;
+		data->e_count--;
 	if (data->map[line][i] == 'C')
-		data->c_count--;
+		data->c_count_t--;
 	if (data->map[line][i] != '1')
 	{
 		data->map[line][i] = 'P';
@@ -40,13 +61,13 @@ void	sl_axis(t_data *data, int line_start, int i_start)
 			line = data->nb_line - 1;
 		while (data->map[line])
 		{
+			loop = 0;
 			if (i_start == EAST)
 				i = 0;
 			if (i_start == WEST)
 				i = data->nb_char - 1;
 			while (data->map[line][i])
 			{
-				loop = 0;
 				if (data->map[line][i] == 'P')
 				{
 					sl_find(data, loop, line + 1, i);
@@ -67,17 +88,20 @@ void	sl_axis(t_data *data, int line_start, int i_start)
 	}
 }
 
-int	sl_invalid_path(t_data *data)
+int	sl_invalid_path(t_data *data, char *filename)
 {
+	data->map = sl_getmap(data, filename);
+	if (!data->map)
+		return (0);
+	sl_count_t(data);
 	sl_axis(data, SOUTH, EAST);
 	sl_axis(data, SOUTH, WEST);
 	sl_axis(data, NORTH, EAST);
 	sl_axis(data, NORTH, WEST);
-	sl_free_map(data);
 	ft_printf("E: %d\n", data->e_count);
-	ft_printf("C: %d\n", data->c_count);
-	if (data->e_count != 1 && data->c_count != 0)
-		return (ft_printf("Error\nInvalid path."), TRUE);
+	ft_printf("C: %d\n", data->c_count_t);
+	if (data->e_count != 0 || data->c_count_t != 0)
+		return (sl_free_map(data), ft_printf("Error\nInvalid path."), TRUE);
 	else
-		return (FALSE);
+		return (sl_free_map(data), FALSE);
 }

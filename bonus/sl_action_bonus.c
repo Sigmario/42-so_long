@@ -6,32 +6,11 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 12:54:49 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/13 15:39:23 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/14 20:04:10 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
-
-void	sl_count(t_data *data)
-{
-	int	line;
-	int	i;
-
-	line = 0;
-	data->p_count = 0;
-	data->c_count = 0;
-	while (data->map[line])
-	{
-		i = 0;
-		while (data->map[line][i])
-		{
-			if (data->map[line][i] == 'C')
-				data->c_count++;
-			i++;
-		}
-		line++;
-	}
-}
 
 void	sl_score(t_data *data)
 {
