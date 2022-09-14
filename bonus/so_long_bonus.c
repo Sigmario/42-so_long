@@ -23,7 +23,6 @@ int	sl_start(t_data data)
 		exit(EXIT_FAILURE);
 	sl_count(&data);
 	sl_locate(&data);
-	sl_scan(&data);
 	int y = -1;
 	while (data.map[++y])
 		ft_printf("%s", data.map[y]);
@@ -46,11 +45,15 @@ int	main(int arc, char **arv)
 	t_data	data;
 
 	if (arc != 2)
-		return (ft_printf("Error\nYou need a map path in the 1st argument.\n"));
+		return (ft_printf("Error\nYou need a map file in the 1st argument.\n"));
 	ft_bzero(&data, sizeof(t_data));
 	data.map = sl_getmap(&data, arv[1]);
 	if (!data.map)
 		return (0);
+	sl_count(&data);
+	if (sl_invalid_path(&data) == TRUE)
+		return (exit(EXIT_FAILURE), TRUE);
+	data.map = sl_getmap(&data, arv[1]);
 	if (sl_invalid_extension(arv[1]) == FALSE)
 		return (ft_printf("Error\nNot a \".ber\" file.\n"), FALSE);
 	sl_start(data);

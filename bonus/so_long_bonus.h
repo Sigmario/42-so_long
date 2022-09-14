@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/13 20:26:19 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/14 12:57:29 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # define LEFT 2002
 # define DOWN 3003
 # define RIGHT 4004
+# define NORTH 1100
+# define SOUTH 2202
+# define EAST 3303
+# define WEST 4404
 
 # include "../libft/libft.h"
 # include <X11/X.h>
@@ -51,9 +55,8 @@ typedef struct s_data
 	int		e_char;
 	int		p_line;
 	int		p_char;
-	int		a_line;
-	int		a_char;
 
+	int		e_count;
 	int		c_count;
 	int		p_count;
 
@@ -70,6 +73,7 @@ char		**sl_getmap(t_data *data, char *path);
 int			sl_errors(t_data data);
 int			sl_invalid_extension(char *filename);
 int			sl_invalid_chars(t_data data);
+int			sl_invalid_path(t_data *data);
 int			sl_find_images(t_data *data);
 int			sl_images(t_data *data);
 int			sl_locate(t_data *data);
@@ -85,6 +89,5 @@ void		sl_free(t_data *data);
 void		sl_free_map(t_data *data);
 void		sl_free_image(t_data *data);
 void		sl_score(t_data *data);
-void		sl_scan(t_data *data);
 
 #endif

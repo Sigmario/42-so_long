@@ -12,7 +12,20 @@
 
 #include "so_long_bonus.h"
 
-void	sl_axis(t_data *data, int line_srt, int i_srt, int line_nxt, int i_nxt)
+void	sl_find(t_data *data, int loop, int line, int i)
+{
+	if (data->map[line][i] == 'E')
+		data->e_count++;
+	if (data->map[line][i] == 'C')
+		data->c_count--;
+	if (data->map[line][i] != '1')
+	{
+		data->map[line][i] = 'P';
+		loop = 1;
+	}
+}
+
+void	sl_axis(t_data *data, int line_start, int i_start)
 {
 	int		line;
 	int		i;
@@ -21,50 +34,50 @@ void	sl_axis(t_data *data, int line_srt, int i_srt, int line_nxt, int i_nxt)
 	loop = 1;
 	while (loop)
 	{
-		line = line_srt;
+		if (line_start == SOUTH)
+			line = 0;
+		if (line_start == NORTH)
+			line = data->nb_line - 1;
 		while (data->map[line])
 		{
-			i = i_srt;
+			if (i_start == EAST)
+				i = 0;
+			if (i_start == WEST)
+				i = data->nb_char - 1;
 			while (data->map[line][i])
 			{
 				loop = 0;
 				if (data->map[line][i] == 'P')
 				{
-					if (data->map[line + 1][i] != '1')
-					{
-						data->map[line + 1][i] = 'P';
-						loop = 1;
-					}
-					if (data->map[line - 1][i] != '1')
-					{
-						data->map[line - 1][i] = 'P';
-						loop = 1;
-					}
-					if (data->map[line][i + 1] != '1')
-					{
-						data->map[line][i + 1] = 'P';
-						loop = 1;
-					}
-					if (data->map[line][i - 1] != '1')
-					{
-						data->map[line][i - 1] = 'P';
-						loop = 1;
-					}
+					sl_find(data, loop, line + 1, i);
+					sl_find(data, loop, line - 1, i);
+					sl_find(data, loop, line, i + 1);
+					sl_find(data, loop, line, i - 1);
 				}
-				i_nxt;
+				if (i_start == EAST)
+					i++;
+				if (i_start == WEST)
+					i--;
 			}
-			line_nxt;
+			if (line_start == SOUTH)
+				line++;
+			if (line_start == NORTH)
+				line--;
 		}
 	}
 }
 
-void	sl_scan(t_data *data)
+int	sl_invalid_path(t_data *data)
 {
-	static int	line;
-	static int	i;
-
-	sl_axis(data, 0, 0, line++, i++);
-	sl_axis(data, data->nb_line - 1, 0, line--, i++);
-	sl_axis(data, 0, data->nb_char - 1, line++, i--);
-	sl_axis(data, data->nb_line - 1, data->nb_char - 1, line--, i--);
+	sl_axis(data, SOUTH, EAST);
+	sl_axis(data, SOUTH, WEST);
+	sl_axis(data, NORTH, EAST);
+	sl_axis(data, NORTH, WEST);
+	sl_free_map(data);
+	ft_printf("E: %d\n", data->e_count);
+	ft_printf("C: %d\n", data->c_count);
+	if (data->e_count != 1 && data->c_count != 0)
+		return (ft_printf("Error\nInvalid path."), TRUE);
+	else
+		return (FALSE);
 }
