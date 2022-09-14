@@ -12,15 +12,15 @@
 
 #include "so_long.h"
 
-static void	*f(void *mlx, char *file, int *width, int *height)
+static void	*f(t_data *data, char *file, int *width, int *height)
 {
 	void	*tmp;
 
-	tmp = mlx_xpm_file_to_image(mlx, file, width, height);
+	tmp = mlx_xpm_file_to_image(data->mlx, file, width, height);
 	if (!tmp)
 	{
 		ft_printf("Error\nInvalid image(s).\n");
-		free(mlx);
+		sl_free(data);
 		exit(EXIT_SUCCESS);
 		return (NULL);
 	}
@@ -35,18 +35,18 @@ static void	p_mlx_put_image_to_window(t_data *data, void *ptr, int i, int line)
 
 int	sl_find_images(t_data *data)
 {
-	data->img_s = f(data->mlx, "./images/sky.xpm", &(data->w), &(data->h));
-	data->img_0 = f(data->mlx, "./images/void.xpm", &(data->w), &(data->h));
-	data->img_1 = f(data->mlx, "./images/wall.xpm", &(data->w), &(data->h));
-	data->img_c = f(data->mlx, "./images/coin.xpm", &(data->w), &(data->h));
-	data->img_e = f(data->mlx, "./images/exit0.xpm", &(data->w), &(data->h));
-	data->img_z = f(data->mlx, "./images/exitD.xpm", &(data->w), &(data->h));
-	data->img_p = f(data->mlx, "./images/start.xpm", &(data->w), &(data->h));
-	data->img_u_p = f(data->mlx, "./images/u_p.xpm", &(data->w), &(data->h));
-	data->img_l_p = f(data->mlx, "./images/l_p.xpm", &(data->w), &(data->h));
-	data->img_d_p = f(data->mlx, "./images/d_p.xpm", &(data->w), &(data->h));
-	data->img_r_p = f(data->mlx, "./images/r_p.xpm", &(data->w), &(data->h));
-	data->img_dig = f(data->mlx, "./images/dig.xpm", &(data->w), &(data->h));
+	data->img_s = f(data, "./images/sky.xpm", &(data->w), &(data->h));
+	data->img_0 = f(data, "./images/void.xpm", &(data->w), &(data->h));
+	data->img_1 = f(data, "./images/wall.xpm", &(data->w), &(data->h));
+	data->img_c = f(data, "./images/coin.xpm", &(data->w), &(data->h));
+	data->img_e = f(data, "./images/exit0.xpm", &(data->w), &(data->h));
+	data->img_z = f(data, "./images/exitD.xpm", &(data->w), &(data->h));
+	data->img_p = f(data, "./images/start.xpm", &(data->w), &(data->h));
+	data->img_u_p = f(data, "./images/u_p.xpm", &(data->w), &(data->h));
+	data->img_l_p = f(data, "./images/l_p.xpm", &(data->w), &(data->h));
+	data->img_d_p = f(data, "./images/d_p.xpm", &(data->w), &(data->h));
+	data->img_r_p = f(data, "./images/r_p.xpm", &(data->w), &(data->h));
+	data->img_dig = f(data, "./images/dig.xpm", &(data->w), &(data->h));
 	return (0);
 }
 
@@ -73,14 +73,14 @@ int	sl_images(t_data *data)
 	int	line;
 	int	i;
 
-	line = -1;
+	line = 0;
 	while (data->map[++line])
 	{
 		i = -1;
 		while (data->map[line][++i])
 		{
-			if (data->map[line][i] == 'S')
-				p_mlx_put_image_to_window(data, data->img_s, i, line);
+			if (data->map[0][i] == '1')
+				p_mlx_put_image_to_window(data, data->img_s, i, 0);
 			if (data->map[line][i] == '1')
 				p_mlx_put_image_to_window(data, data->img_1, i, line);
 			if (data->map[line][i] == '0')

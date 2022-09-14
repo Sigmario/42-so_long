@@ -6,7 +6,7 @@
 #    By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/16 16:15:09 by julmuntz          #+#    #+#              #
-#    Updated: 2022/09/13 21:08:16 by julmuntz         ###   ########.fr        #
+#    Updated: 2022/09/14 23:30:17 by julmuntz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRCS		=	so_long.c				\
 				sl_action.c				\
 				sl_motion.c				\
 				sl_memory.c				\
+				sl_finder.c				\
 
 B_SRCS		=	bonus/so_long_bonus.c	\
 				bonus/sl_getmap_bonus.c	\

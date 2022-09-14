@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/07 21:57:28 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/14 23:37:13 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	sl_start(t_data data)
 		exit(EXIT_FAILURE);
 	sl_count(&data);
 	sl_locate(&data);
-	data.window = mlx_new_window(data.mlx,
-			data.nb_char * 48, data.nb_line * 48, "DIG DUG");
+	data.window = mlx_new_window(data.mlx, data.nb_char * 48, data.nb_line * 48,
+			"DIG DUG   (c)  1982 Atari, Inc.  All rights reserved.");
 	if (!data.window)
 		return (0);
 	sl_find_images(&data);
@@ -40,13 +40,16 @@ int	main(int arc, char **arv)
 	t_data	data;
 
 	if (arc != 2)
-		return (ft_printf("Error\nYou need a map path in the 1st argument.\n"));
+		return (ft_printf("Error\nYou need a map file in the 1st argument.\n"));
 	ft_bzero(&data, sizeof(t_data));
 	data.map = sl_getmap(&data, arv[1]);
 	if (!data.map)
 		return (0);
 	if (sl_invalid_extension(arv[1]) == FALSE)
 		return (ft_printf("Error\nNot a \".ber\" file.\n"), FALSE);
+	if (sl_invalid_path(&data) == TRUE)
+		return (sl_free_mapall(&data), exit(EXIT_FAILURE), TRUE);
+	sl_free_mapcpy(&data);
 	sl_start(data);
 	return (0);
 }

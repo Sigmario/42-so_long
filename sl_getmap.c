@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 16:06:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/14 15:38:54 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/14 23:12:31 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int	sl_locate(t_data *data)
 		i = -1;
 		while (data->map[line][++i])
 		{
-			if (data->map[0][i] == '1')
-				data->map[0][i] = 'S';
 			if (data->map[line][i] == 'E')
 			{
 				data->e_line = line;
@@ -86,4 +84,23 @@ char	**sl_getmap(t_data *data, char *filename)
 	}
 	close(fd);
 	return (data->map);
+}
+
+char	**sl_mapcpy(t_data *data)
+{
+	char	**map_copy;
+	int		i;
+
+	i = -1;
+	map_copy = malloc((data->nb_line + 1) * sizeof(char *));
+	if (!map_copy)
+	{
+		data->map_copy = 0;
+		return (0);
+	}
+	while (data->map[++i])
+		map_copy[i] = ft_strdup(data->map[i]);
+	map_copy[i] = 0;
+	data->map_copy = map_copy;
+	return (map_copy);
 }

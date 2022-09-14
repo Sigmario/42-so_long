@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 13:59:55 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/09 18:20:13 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/14 23:15:27 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,22 @@ void	sl_free_map(t_data *data)
 	while (data->map[i])
 		free(data->map[i++]);
 	free(data->map);
+}
+
+void	sl_free_mapcpy(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (data->map_copy[i])
+		free(data->map_copy[i++]);
+	free(data->map_copy);
+}
+
+void	sl_free_mapall(t_data *data)
+{
+	sl_free_map(data);
+	sl_free_mapcpy(data);
 }
 
 void	sl_free(t_data *data)
