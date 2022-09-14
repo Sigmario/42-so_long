@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 16:06:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/09 16:47:40 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/13 15:29:30 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int	sl_locate(t_data *data)
 		i = -1;
 		while (data->map[line][++i])
 		{
-			if (data->map[0][i] == '1')
-				data->map[0][i] = 'S';
 			if (data->map[line][i] == 'E')
 			{
 				data->e_line = line;

@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/13 01:32:30 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/13 20:26:19 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,6 @@ void		sl_free(t_data *data);
 void		sl_free_map(t_data *data);
 void		sl_free_image(t_data *data);
 void		sl_score(t_data *data);
-int			sl_scan(t_data *data);
+void		sl_scan(t_data *data);
 
 #endif

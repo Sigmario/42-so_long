@@ -12,53 +12,6 @@
 
 #include "so_long_bonus.h"
 
-int	sl_scan(t_data *data)
-{
-	int line;
-	int i;
-	int loop;
-
-	loop = 1;
-	while (loop)
-	{
-		line = 0;
-		while (data->map[line])
-		{
-			i = 0;
-			while (data->map[line][i])
-			{
-				loop = 0;
-				if (data->map[line][i] == 'P')
-				{
-					if (data->map[line + 1][i] != '1' && data->map[line + 1][i] != 'S')
-					{
-						data->map[line + 1][i] = 'P';
-						loop = 1;
-					}
-					if (data->map[line - 1][i] != '1' && data->map[line - 1][i] != 'S')
-					{
-						data->map[line - 1][i] = 'P';
-						loop = 1;
-					}
-					if (data->map[line][i + 1] != '1' && data->map[line][i + 1] != 'S')
-					{
-						data->map[line][i + 1] = 'P';
-						loop = 1;
-					}
-					if (data->map[line][i - 1] != '1' && data->map[line][i - 1] != 'S')
-					{
-						data->map[line][i - 1] = 'P';
-						loop = 1;
-					}
-				}
-				i++;
-			}
-			line++;
-		}
-	}
-	return (0);
-}
-
 int	sl_start(t_data data)
 {
 	if (sl_invalid_chars(data) == TRUE)

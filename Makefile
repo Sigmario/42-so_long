@@ -6,7 +6,7 @@
 #    By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/16 16:15:09 by julmuntz          #+#    #+#              #
-#    Updated: 2022/09/07 13:50:54 by julmuntz         ###   ########.fr        #
+#    Updated: 2022/09/13 21:08:16 by julmuntz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ B_SRCS		=	bonus/so_long_bonus.c	\
 				bonus/sl_action_bonus.c	\
 				bonus/sl_motion_bonus.c	\
 				bonus/sl_memory_bonus.c	\
+				bonus/sl_finder_bonus.c	\
 
 OBJDIR		= 	obj/
 

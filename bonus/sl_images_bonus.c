@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 19:54:40 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/13 01:33:16 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/13 15:36:23 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,14 @@ int	sl_images(t_data *data)
 	int	line;
 	int	i;
 
-	line = -1;
+	line = 0;
 	while (data->map[++line])
 	{
 		i = -1;
 		while (data->map[line][++i])
 		{
-			if (data->map[line][i] == 'S')
-				p_mlx_put_image_to_window(data, data->img_s, i, line);
+			if (data->map[0][i] == '1')
+				p_mlx_put_image_to_window(data, data->img_s, i, 0);
 			if (data->map[line][i] == '1')
 				p_mlx_put_image_to_window(data, data->img_1, i, line);
 			if (data->map[line][i] == '0')
