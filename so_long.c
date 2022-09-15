@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/14 23:37:13 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/15 02:27:16 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,14 @@ int	sl_start(t_data data)
 		return (exit(EXIT_FAILURE), TRUE);
 	if (sl_errors(data) == TRUE)
 		return (exit(EXIT_FAILURE), TRUE);
+	sl_mapcpy(&data);
+	sl_count(&data);
+	if (sl_invalid_path(&data) == TRUE)
+		return (sl_free_mapall(&data), exit(EXIT_FAILURE), TRUE);
+	sl_free_mapcpy(&data);
 	data.mlx = mlx_init();
 	if (!data.mlx)
 		exit(EXIT_FAILURE);
-	sl_count(&data);
 	sl_locate(&data);
 	data.window = mlx_new_window(data.mlx, data.nb_char * 48, data.nb_line * 48,
 			"DIG DUG   (c)  1982 Atari, Inc.  All rights reserved.");
@@ -47,9 +51,6 @@ int	main(int arc, char **arv)
 		return (0);
 	if (sl_invalid_extension(arv[1]) == FALSE)
 		return (ft_printf("Error\nNot a \".ber\" file.\n"), FALSE);
-	if (sl_invalid_path(&data) == TRUE)
-		return (sl_free_mapall(&data), exit(EXIT_FAILURE), TRUE);
-	sl_free_mapcpy(&data);
 	sl_start(data);
 	return (0);
 }

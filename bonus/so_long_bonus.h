@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/14 22:44:51 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/15 01:54:44 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int			sl_find_images(t_data *data);
 int			sl_images(t_data *data);
 int			sl_locate(t_data *data);
 void		sl_count(t_data *data);
-void		sl_count_t(t_data *data);
+void		sl_score(t_data *data);
 int			sl_key(int key, t_data *data);
 int			sl_cross(t_data *data);
 void		sl_up(t_data *data);
@@ -86,9 +86,8 @@ void		sl_right(t_data *data);
 int			sl_quit(t_data *data);
 void		sl_free(t_data *data);
 void		sl_free_map(t_data *data);
+void		sl_free_image(t_data *data);
 void		sl_free_mapcpy(t_data *data);
 void		sl_free_mapall(t_data *data);
-void		sl_free_image(t_data *data);
-void		sl_score(t_data *data);
 
 #endif

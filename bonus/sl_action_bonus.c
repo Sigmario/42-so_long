@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 12:54:49 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/14 23:40:13 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/15 02:03:22 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,19 @@ void	sl_count(t_data *data)
 	int	i;
 
 	line = 0;
-	data->p_count = 0;
+	data->e_count = 1;
 	data->c_count = 0;
-	while (data->map[line])
+	data->p_count = 0;
+	data->c_count_t = 0;
+	while (data->map[line] && data->map_copy[line])
 	{
 		i = 0;
-		while (data->map[line][i])
+		while (data->map[line][i] && data->map_copy[line][i])
 		{
 			if (data->map[line][i] == 'C')
 				data->c_count++;
+			if (data->map_copy[line][i] == 'C')
+				data->c_count_t++;
 			i++;
 		}
 		line++;
