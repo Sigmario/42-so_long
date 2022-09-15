@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 23:09:21 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/15 16:55:42 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/15 19:05:04 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,38 @@ void	sl_find(t_data *data, int line, int i)
 		data->map_copy[line][i] = 'P';
 }
 
-void	sl_axis(t_data *data, int line_start, int i_start)
+void	sl_scan_2(t_data *data, int line, int i, int i_start)
+{
+	if (i_start == EAST)
+		i = 0;
+	if (i_start == WEST)
+		i = data->nb_char - 1;
+	while (i >= 0 && data->map_copy[line][i])
+	{
+		data->loop = 0;
+		if (data->map_copy[line][i] == 'P')
+		{
+			sl_find(data, line + 1, i);
+			sl_find(data, line - 1, i);
+			sl_find(data, line, i + 1);
+			sl_find(data, line, i - 1);
+			data->loop = 1;
+		}
+		if (i_start == EAST)
+			i++;
+		if (i_start == WEST)
+			i--;
+	}
+}
+
+void	sl_scan(t_data *data, int line_start, int i_start)
 {
 	int		line;
 	int		i;
-	int		loop;
 
-	loop = 1;
-	while (loop)
+	data->loop = 1;
+	while (data->loop)
 	{
-		line = 0;
 		if (line_start == SOUTH)
 			line = 0;
 		if (line_start == NORTH)
@@ -39,26 +61,7 @@ void	sl_axis(t_data *data, int line_start, int i_start)
 		while (line >= 0 && data->map_copy[line])
 		{
 			i = 0;
-			if (i_start == EAST)
-				i = 0;
-			if (i_start == WEST)
-				i = data->nb_char - 1;
-			while (i >= 0 && data->map_copy[line][i])
-			{
-				loop = 0;
-				if (data->map_copy[line][i] == 'P')
-				{
-					sl_find(data, line + 1, i);
-					sl_find(data, line - 1, i);
-					sl_find(data, line, i + 1);
-					sl_find(data, line, i - 1);
-					loop = 1;
-				}
-				if (i_start == EAST)
-					i++;
-				if (i_start == WEST)
-					i--;
-			}
+			sl_scan_2(data, line, i, i_start);
 			if (line_start == SOUTH)
 				line++;
 			if (line_start == NORTH)
@@ -69,10 +72,10 @@ void	sl_axis(t_data *data, int line_start, int i_start)
 
 int	sl_invalid_path(t_data *data)
 {
-	sl_axis(data, SOUTH, EAST);
-	sl_axis(data, SOUTH, WEST);
-	sl_axis(data, NORTH, EAST);
-	sl_axis(data, NORTH, WEST);
+	sl_scan(data, SOUTH, EAST);
+	sl_scan(data, SOUTH, WEST);
+	sl_scan(data, NORTH, EAST);
+	sl_scan(data, NORTH, WEST);
 	if (data->e_count != 0 || data->c_count_t != 0)
 		return (ft_printf("Error\nInvalid path.\n"), TRUE);
 	else
