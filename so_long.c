@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/15 17:10:14 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/15 17:26:55 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	sl_start(t_data data)
 	sl_free_mapcpy(&data);
 	data.mlx = mlx_init();
 	if (!data.mlx)
-		exit(EXIT_FAILURE);
+		return (sl_free_map(&data), free(data.mlx), 0);
 	sl_locate(&data);
 	data.window = mlx_new_window(data.mlx, data.nb_char * 48, data.nb_line * 48,
 			"DIG DUG   (c)  1982 Atari, Inc.  All rights reserved.");
