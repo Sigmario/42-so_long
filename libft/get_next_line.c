@@ -12,8 +12,6 @@
 
 #include "libft.h"
 
-#include "libft.h"
-
 char	*ft_until_nl(char *str)
 {
 	int		i;
