@@ -6,7 +6,7 @@
 #    By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/16 16:15:09 by julmuntz          #+#    #+#              #
-#    Updated: 2022/09/14 23:30:17 by julmuntz         ###   ########.fr        #
+#    Updated: 2022/09/15 17:10:47 by julmuntz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,10 +75,5 @@ fclean:			clean
 					cd $(MLX) && $(MAKE) fclean
 
 re:				fclean all bonus
-
-malloc_test:	$(B_OBJS)
-					cd $(LIBFT) && $(MAKE)
-					cd $(MLX) && $(MAKE)
-					$(CC) $(CFLAGS) -fsanitize=undefined -rdynamic -o $@ ${B_OBJS} libft/libft.a -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz -L. -lmallocator
 
 .PHONY:			all bonus clean fclean re

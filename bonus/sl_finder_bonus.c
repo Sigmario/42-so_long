@@ -74,7 +74,7 @@ int	sl_invalid_path(t_data *data)
 	sl_axis(data, NORTH, EAST);
 	sl_axis(data, NORTH, WEST);
 	if (data->e_count != 0 || data->c_count_t != 0)
-		return (ft_printf("Error\nInvalid path."), TRUE);
+		return (ft_printf("Error\nInvalid path.\n"), TRUE);
 	else
 		return (FALSE);
 }
