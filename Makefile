@@ -6,7 +6,7 @@
 #    By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/16 16:15:09 by julmuntz          #+#    #+#              #
-#    Updated: 2022/09/15 17:10:47 by julmuntz         ###   ########.fr        #
+#    Updated: 2022/09/15 19:20:53 by julmuntz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ MLX			=	./mlx
 
 CC			= 	cc
 RM			= 	rm -f
-CFLAGS		= 	-Wall -Wextra -Werror -g3
+CFLAGS		= 	-Wall -Wextra -Werror
 
 $(OBJDIR)%.o:	%.c
 					@mkdir -p $(OBJDIR)
