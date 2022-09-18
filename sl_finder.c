@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 23:09:21 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/15 19:05:04 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/18 15:12:14 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,10 @@ void	sl_scan(t_data *data, int line_start, int i_start)
 
 int	sl_invalid_path(t_data *data)
 {
+	sl_scan(data, SOUTH, WEST);
+	sl_scan(data, SOUTH, EAST);
+	sl_scan(data, NORTH, WEST);
+	sl_scan(data, NORTH, EAST);
 	sl_scan(data, SOUTH, EAST);
 	sl_scan(data, SOUTH, WEST);
 	sl_scan(data, NORTH, EAST);

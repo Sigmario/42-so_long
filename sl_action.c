@@ -37,15 +37,12 @@ void	sl_count(t_data *data)
 	}
 }
 
-void	sl_score(int key, t_data *data)
+void	sl_score(t_data *data)
 {
-	if (key == XK_w || key == XK_a || key == XK_s || key == XK_d)
-	{
-		if (data->p_count == 1)
-			ft_printf("You did %d move.\n", data->p_count);
-		else
-			ft_printf("You did %d moves.\n", data->p_count);
-	}
+	if (data->p_count == 1)
+		ft_printf("You did %d move.\n", data->p_count);
+	else
+		ft_printf("You did %d moves.\n", data->p_count);
 }
 
 int	sl_quit(t_data *data)
@@ -84,6 +81,5 @@ int	sl_key(int key, t_data *data)
 	else if (key == XK_d)
 		sl_right(data);
 	sl_images(data);
-	sl_score(key, data);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:51:18 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/13 01:33:28 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/18 15:05:39 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int	sl_invalid_extension(char *filename)
 	char	*ber;
 
 	if (!filename)
-		return (FALSE);
+		return (TRUE);
 	ber = ft_strrchr(filename, '.');
-	if (ber && ft_strncmp(ber, ".ber", 4))
-		return (FALSE);
-	return (TRUE);
+	if (!ber || ft_strncmp(ber, ".ber", 4))
+		return (TRUE);
+	return (FALSE);
 }
 
 int	sl_invalid_chars(t_data data)
@@ -107,16 +107,16 @@ int	sl_errors(t_data data)
 	while (data.map[++line])
 	{
 		if (ft_linelen(data.map[line]) != ft_linelen(data.map[0]))
-			return (ft_printf("Error\nNot rectangular.\n"));
+			return (ft_printf("Error\nNot rectangular.\n"), TRUE);
 		i = -1;
 		while (data.map[line][++i])
 		{
 			if ((data.map[0][i] != '1' && data.map[0][i] != '\n')
 				|| (data.map[data.nb_line - 1][i] != '1'
-					&& data.map[data.nb_line - 1][i] != '\0'))
-				return (ft_printf("Error\nInvalid walls.\n"), TRUE);
-			if (data.map[line][0] != '1'
-				|| data.map[line][ft_linelen(data.map[line] + 1)] != '1')
+					&& data.map[data.nb_line - 1][i] != '\n'
+					&& data.map[data.nb_line - 1][i] != '\0') ||
+					((data.map[line][0] != '1'
+					|| data.map[line][ft_linelen(data.map[line] + 1)] != '1')))
 				return (ft_printf("Error\nInvalid walls.\n"), TRUE);
 		}
 		if (sl_char_errors_1(data) == TRUE)

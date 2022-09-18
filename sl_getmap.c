@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 16:06:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/14 23:12:31 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/18 11:45:50 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	**sl_getmap(t_data *data, char *filename)
 	sl_count_line(data, fd, filename);
 	if (!data->nb_line)
 	{
-		ft_printf("Error\nIt's empty.\n");
+		ft_printf("Error\nMap not found.\n");
 		exit(EXIT_SUCCESS);
 	}
 	fd = open(filename, O_RDONLY);

@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:39:03 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/15 17:26:55 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/18 11:47:58 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	main(int arc, char **arv)
 
 	if (arc != 2)
 		return (ft_printf("Error\nYou need a map file in the 1st argument.\n"));
-	if (sl_invalid_extension(arv[1]) == FALSE)
-		return (ft_printf("Error\nNot a \".ber\" file.\n"), FALSE);
+	if (sl_invalid_extension(arv[1]) == TRUE)
+		return (ft_printf("Error\nNot a \".ber\" file.\n"), TRUE);
 	ft_bzero(&data, sizeof(t_data));
 	data.map = sl_getmap(&data, arv[1]);
 	if (!data.map)

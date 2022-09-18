@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:13:59 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/15 19:02:17 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/18 11:30:22 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int			sl_find_images(t_data *data);
 int			sl_images(t_data *data);
 int			sl_locate(t_data *data);
 void		sl_count(t_data *data);
-void		sl_score(int key, t_data *data);
+void		sl_score(t_data *data);
 int			sl_key(int key, t_data *data);
 int			sl_cross(t_data *data);
 void		sl_up(t_data *data);

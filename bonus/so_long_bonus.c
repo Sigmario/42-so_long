@@ -47,8 +47,8 @@ int	main(int arc, char **arv)
 
 	if (arc != 2)
 		return (ft_printf("Error\nYou need a map file in the 1st argument.\n"));
-	if (sl_invalid_extension(arv[1]) == FALSE)
-		return (ft_printf("Error\nNot a \".ber\" file.\n"), FALSE);
+	if (sl_invalid_extension(arv[1]) == TRUE)
+		return (ft_printf("Error\nNot a \".ber\" file.\n"), TRUE);
 	ft_bzero(&data, sizeof(t_data));
 	data.map = sl_getmap(&data, arv[1]);
 	if (!data.map)

@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 12:54:49 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/15 02:03:22 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/18 11:33:53 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,5 @@ int	sl_key(int key, t_data *data)
 		sl_down(data);
 	else if (key == XK_d)
 		sl_right(data);
-	sl_images(data);
-	sl_score(data);
 	return (0);
 }
