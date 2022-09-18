@@ -73,9 +73,17 @@ void	sl_scan(t_data *data, int line_start, int i_start)
 int	sl_invalid_path(t_data *data)
 {
 	sl_scan(data, SOUTH, WEST);
+	sl_scan(data, NORTH, WEST);
+	sl_scan(data, SOUTH, EAST);
+	sl_scan(data, NORTH, EAST);
+	sl_scan(data, SOUTH, WEST);
 	sl_scan(data, SOUTH, EAST);
 	sl_scan(data, NORTH, WEST);
 	sl_scan(data, NORTH, EAST);
+	sl_scan(data, NORTH, WEST);
+	sl_scan(data, SOUTH, WEST);
+	sl_scan(data, NORTH, EAST);
+	sl_scan(data, SOUTH, EAST);
 	sl_scan(data, SOUTH, EAST);
 	sl_scan(data, SOUTH, WEST);
 	sl_scan(data, NORTH, EAST);

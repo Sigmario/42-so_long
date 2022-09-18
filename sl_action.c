@@ -80,6 +80,5 @@ int	sl_key(int key, t_data *data)
 		sl_down(data);
 	else if (key == XK_d)
 		sl_right(data);
-	sl_images(data);
 	return (0);
 }
