@@ -6,7 +6,7 @@
 #    By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/16 16:15:09 by julmuntz          #+#    #+#              #
-#    Updated: 2022/09/15 19:20:53 by julmuntz         ###   ########.fr        #
+#    Updated: 2022/09/18 17:48:40 by julmuntz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ MLX			=	./mlx
 
 CC			= 	cc
 RM			= 	rm -f
-CFLAGS		= 	-Wall -Wextra -Werror
+CFLAGS		= 	-Wall -Wextra -Werror 
 
 $(OBJDIR)%.o:	%.c
 					@mkdir -p $(OBJDIR)
@@ -76,4 +76,10 @@ fclean:			clean
 
 re:				fclean all bonus
 
-.PHONY:			all bonus clean fclean re
+norminette :
+				@norminette libft
+				@norminette bonus
+				@norminette *.c
+				@norminette *.h	
+
+.PHONY:			all bonus clean fclean re norminette

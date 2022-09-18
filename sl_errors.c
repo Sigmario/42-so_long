@@ -6,7 +6,7 @@
 /*   By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:51:18 by julmuntz          #+#    #+#             */
-/*   Updated: 2022/09/18 15:11:05 by julmuntz         ###   ########.fr       */
+/*   Updated: 2022/09/18 17:20:27 by julmuntz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	sl_invalid_extension(char *filename)
 	if (!filename)
 		return (TRUE);
 	ber = ft_strrchr(filename, '.');
-	if (!ber || ft_strncmp(ber, ".ber", 4))
+	if (!ber || ft_strncmp(ber, ".ber\0", 5))
 		return (TRUE);
 	return (FALSE);
 }
