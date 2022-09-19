@@ -6,7 +6,7 @@
 #    By: julmuntz <julmuntz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/16 16:15:09 by julmuntz          #+#    #+#              #
-#    Updated: 2022/09/18 17:48:40 by julmuntz         ###   ########.fr        #
+#    Updated: 2022/09/19 15:07:50 by julmuntz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ $(B_NAME):		$(B_OBJS)
 					cd $(MLX) && $(MAKE)
 					$(CC) $(B_OBJS) libft/libft.a -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz -o $(B_NAME)
 
-all:			$(NAME)
+all:			$(NAME) $(B_NAME)
 
 bonus:			$(B_NAME)
 
@@ -74,7 +74,7 @@ fclean:			clean
 					cd $(LIBFT) && $(MAKE) fclean
 					cd $(MLX) && $(MAKE) fclean
 
-re:				fclean all bonus
+re:				fclean all
 
 norminette :
 				@norminette libft
